@@ -2,7 +2,7 @@
 
 ### Poderes de Água
 
-Capacidade de criar e manipular agia, causar afogamentos criando bolas de água em torno da cabeça de inimigos,consegue respirar debaixo d’água, pode criar gelo.
+Capacidade de criar e manipular água, causar afogamentos criando bolas de água em torno da cabeça de inimigos,consegue respirar debaixo d’água, pode criar gelo.
 
 - **1 ponto:** Pode criar e manipular a água, causa 1d6 de dano, cria até 1m , alcance de 2m, área de 1x1m (dano de área será a metade do dano em um único alvo).
 - **2 pontos:** Pode criar e manipular a água, causa 2d6 de dano, cria até 2m, alcance de 4m, área de 2x2m (dano de área será a metade do dano em um único alvo).
