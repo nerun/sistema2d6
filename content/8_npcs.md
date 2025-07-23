@@ -24,7 +24,7 @@ Para simplificar a explicação, cada PdM possui um Nível de Desafio que varia 
 
 Os PDMs podem ter Ataques Especiais e/ou Habilidades Especiais, que ganham um bônus equivalente a uma perícia mais um atributo. Coloca-se o bônus inteiro de uma vez para facilitar na hora do jogo. Eles também podem ter Armaduras/Redução de Dano e Equipamentos (que dão um bônus especifico em um teste).
 
-### PdMs de Nível de Desafio 0
+### PdMs de ND 0
 
 - Atributos de -3 a 0
 - Perícias 1
@@ -39,7 +39,7 @@ Os PDMs podem ter Ataques Especiais e/ou Habilidades Especiais, que ganham um b�
 - Farejar 1 Mordida 1 Dano 1
 - Passar Doença +1 vs. CON: Alvo fica a -1 em todas as suas ações por 1d6 rodadas.
 
-### PdMs de Nível de Desafio 1
+### PdMs de ND 1
 
 - Atributos de 0 a 1
 - Perícias 1 a 2
@@ -53,7 +53,7 @@ Os PDMs podem ter Ataques Especiais e/ou Habilidades Especiais, que ganham um b�
 - Ex.: Zumbi Capenga: FOR 1 DES 1 CON 1 INT 0 SAB 1 PVs 4
 - Mordida 1 Dano 1d6 Passar Doença vs. CON: 3 (alvo vira zumbi se morrer).
 
-### PdMs de Nível de Desafio 2
+### PdMs de ND 2
 
 - Atributos de 1 a 2
 - Perícias 1 a 3
@@ -66,7 +66,7 @@ Os PDMs podem ter Ataques Especiais e/ou Habilidades Especiais, que ganham um b�
 - Esquiva +4 Espada +7 (dano 2d6) Armadura 2
 - Fedor Goblin (vs. CON) +5: Alvo fica a -2 até o final do combate.
 
-### PdMs de Nível de Desafio 3
+### PdMs de ND 3
 
 - Atributos de 1 a 3
 - Perícias 1 a 4
@@ -81,7 +81,7 @@ Os PDMs podem ter Ataques Especiais e/ou Habilidades Especiais, que ganham um b�
 - Espada +8 (dano 3d6) Armadura 2
 - Urro Amedontrador vs. INT +5: Alvo fica a -4 na próxima ação.
 
-### PdMs de Nível de Desafio 4
+### PdMs de ND 4
 
 - Atributos de 1 a 4
 - Perícias 1 a 5
@@ -96,7 +96,7 @@ Os PDMs podem ter Ataques Especiais e/ou Habilidades Especiais, que ganham um b�
 - Adagas Envenenadas +10 (dano 4d6) Armadura 2
 - Veneno vs. CON +8: Alvo fica imobilizado por 1d6 rodadas.
 
-### PdMs de Nível de Desafio 5
+### PdMs de ND 5
 
 - Atributos de 1 a 5
 - Perícias 1 a 5
@@ -112,11 +112,11 @@ Os PDMs podem ter Ataques Especiais e/ou Habilidades Especiais, que ganham um b�
 - Armadura 5
 - Sugar Almas +10 vs. INT: Alvo perde 3d6 PVs que vão para o Grande Vilão.
 
-## PdMs de Nível de Desafio 6 a 10
+## PdMs de ND 6 a 10
 
 A partir do Nível de Desafio 6, os PdMs são muito poderosos, criaturas sobrenaturais de enorme poder. O mestre deve adaptar à campanha, ajustando o poder dos PdJs ou criando pontos fracos para esses PdMs poderosos (como amuletos, armas mágicas que os atingem, etc.).
 
-### PdMs de Nível de Desafio 6
+### PdMs de ND 6
 
 - Atributos de 1 a 6
 - Perícias 1 a 5
@@ -131,7 +131,7 @@ A partir do Nível de Desafio 6, os PdMs são muito poderosos, criaturas sobrena
 - Garras +14 (dano 6d6+6) Armadura 6
 - Hipnose em Massa +12 vs. INT: Todos os alvos afetados em uma área de 100 metros obedecem completamente o Vampiro-Rei.
 
-### PdMs de Nível de Desafio 7
+### PdMs de ND 7
 
 - Atributos de 1 a 7
 - Perícias 1 a 5
@@ -147,7 +147,7 @@ A partir do Nível de Desafio 6, os PdMs são muito poderosos, criaturas sobrena
 - Armadura 7
 - Derreter Cérebro +14 vs. INT: O alvo morre imediatamente.
 
-### PdMs de Nível de Desafio 8
+### PdMs de ND 8
 
 - Atributos de 1 a 8
 - Perícias 1 a 5
@@ -162,7 +162,7 @@ A partir do Nível de Desafio 6, os PdMs são muito poderosos, criaturas sobrena
 - Espada Gigante +16 (dano 8d6+10) Armadura 8
 - Terremoto +14 vs. DES: O rei dos gigantes bate com o pé no chão atingindo todos os alvos em um raio de 30 metros, causando 6d8 de dano.
 
-### PdMs de Nível de Desafio 9
+### PdMs de ND 9
 
 - Atributos de 1 a 9
 - Perícias 1 a 5
@@ -178,7 +178,7 @@ A partir do Nível de Desafio 6, os PdMs são muito poderosos, criaturas sobrena
 - Armadura 9
 - Delírio em Massa +16 vs. INT: Alvos em um raio de 100 metros do Cthulhu ficam loucos e começam a atacar a si próprios por 2d6 rodadas.
 
-### PdMs de Nível de Desafio 10
+### PdMs de ND 10
 
 - Atributos de 1 a 10
 - Perícias 1 a 5
