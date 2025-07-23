@@ -1,0 +1,13 @@
+.sidebar-nav li {
+    position: relative;
+    padding-left: 1.6em;
+}
+.sidebar-nav li::before {
+    content: '📁';
+    position: absolute;
+    left: 0;
+    font-size: 0.9em;
+}
+.sidebar-nav li.open::before {
+    content: '📂';
+}

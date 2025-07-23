@@ -1,0 +1,16 @@
+.sidebar-nav li {
+    position: relative;
+    padding-left: 1.1em;
+}
+.sidebar-nav li::before {
+    content: '➤';
+    position: absolute;
+    left: 0;
+    color: #505d6b;
+    font-size: 0.9em;
+    transition: transform 0.2s ease;
+}
+.sidebar-nav li.open::before {
+    content: '➤';
+    transform: rotate(90deg);
+}

@@ -1,0 +1,76 @@
+body {
+    --siteFont: 'Open Sans', sans-serif;
+    --headingFont: 'Orbitron', sans-serif;
+    margin-top: -17px;
+}
+
+.app-nav {
+    margin-top: 17px !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--headingFont);
+}
+
+.search .input-wrap {
+    margin-top: 10px!important;
+}
+
+.sidebar-toggle {
+    position: fixed;
+    margin-top: 80px;
+    left: 300px;
+    bottom: unset;
+    transition: left 0.3s ease;
+    z-index: 9999; /* Ensure it always stays in front of the content.*/
+}
+
+body.close .sidebar-toggle {
+    left: 10px;
+}
+
+@media screen and (max-width: 770px) {
+    .search .input-wrap {
+        margin-top: 53px!important;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #docsify-darklight-theme {
+        left: unset;
+    }
+    .search .input-wrap {
+        margin-top: 10px!important;
+    }
+    .app-nav {
+      margin-top: -20px !important;
+    }
+    body {
+        margin-top: 20px;
+    }
+    .sidebar-toggle {
+        margin-top: 50px;
+        left: 10px;
+    }
+    body.close .sidebar-toggle {
+        margin-top: 40px;
+        left: 300px;
+    }
+}
+
+@media screen and (max-width: 472px) {
+    body {
+        margin-top: 45px;
+    }
+    .app-nav {
+      margin-top: -45px !important;
+    }
+    .sidebar-toggle {
+        margin-top: 45px;
+        left: 10px;
+    }
+    body.close .sidebar-toggle {
+        margin-top: 35px;
+        left: 300px;
+    }
+}
