@@ -1,5 +1,5 @@
 <!-- Logo -->
-[![](assets/img/favicon.png)](README.md)
+[![](../assets/img/favicon.png)](README.md)
 
 <!-- Title -->
 Sistema +2d6

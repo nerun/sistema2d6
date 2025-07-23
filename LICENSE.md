@@ -1,3 +1,23 @@
+# CC BY 4.0
+
+Sistema +2d6 em Markdown &copy; Daniel "Nerun" Rodrigues &lt;danieldiasr@gmail.com>
+
+# CC BY 3.0
+
+Sistema +2d6 – Regras Customizáveis para RPGs – Versão 2.3
+
+* **Autor:** Newton "Tio Nitro" Rocha
+* **Contato:** prof.newtonrocha@gmail.com
+* **NitroDungeon RPG Blog:** https://newtonrocha.wordpress.com
+
+Baixe as fichas de personagem do +2d6 no meu blog de RPG!
+
+O Sistema +2d6 é livre e aberto, podendo ser usado integralmente em qualquer projeto, jogo, RPG etc., para uso pessoal ou comercial. Ficarei muito feliz! ☺
+
+Este trabalho está licenciado sob a [Creative Commons Atribuição 3.0](https://creativecommons.org/licenses/by/3.0/br/deed.pt-br).
+
+Você pode remixar, criar e comercializar a partir deste material, desde que atribua devidamente a autoria da obra original.
+
 # MIT License
 
 Docsify &copy; 2021 docsifyjs
