@@ -1,5 +1,7 @@
 # Poderes
 
+Tratados como [Vantagens](content/9_vantagens.md).
+
 ### Poderes de Água
 
 Capacidade de criar e manipular água, causar afogamentos criando bolas de água em torno da cabeça de inimigos,consegue respirar debaixo d’água, pode criar gelo.
