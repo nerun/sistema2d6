@@ -1,6 +1,6 @@
 body {
     --siteFont: 'Open Sans', sans-serif;
-    --headingFont: 'Orbitron', sans-serif;
+    --headingFont: 'Limelight', sans-serif;
     margin-top: -17px;
 }
 
@@ -10,6 +10,43 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--headingFont);
+}
+
+.markdown-section h1,
+.markdown-section h2 {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    margin-top: 34px !important;
+    margin-bottom: 0 !important;
+}
+
+.markdown-section h3 {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    margin-top: 17px !important;
+    margin-bottom: 0 !important;
+}
+
+.markdown-section h4,
+.markdown-section h5,
+.markdown-section h6,
+.markdown-section p {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    margin-top: 9px !important;
+    margin-bottom: 0 !important;
+}
+
+.markdown-section ul {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    margin-top: 9px !important;
+    margin-bottom: 0 !important;
+    margin-left: 1em !important;
+}
+
+.markdown-section table {
+    margin-bottom: 2em !important;
 }
 
 .search .input-wrap {
