@@ -1,0 +1,727 @@
+<!DOCTYPE HTML>
+<html lang="pt-BR" class="rust sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Vantagens - Sistema +2d6 SRD</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="../favicon-8114d1fc.png">
+        <link rel="stylesheet" href="../css/variables-8adf115d.css">
+        <link rel="stylesheet" href="../css/general-2459343d.css">
+        <link rel="stylesheet" href="../css/chrome-ae938929.css">
+        <link rel="stylesheet" href="../css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="../highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="../tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "rust";
+            const default_dark_theme = "rust";
+            window.path_to_searchindex_js = "../searchindex-006b79ba.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc-f712ca08.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('rust')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Sistema +2d6 SRD</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="vantagens"><a class="header" href="#vantagens">Vantagens</a></h1>
+<p>Assim como as perícias, as vantagens possuem custos que variam de 1 até 5 pontos e cobrem normalmente personagens humanos e sobre-humanos.</p>
+<p>Personagens épicos e divinos possuem vantagens específicas (vantagens épicas e divinas), que também custam de 1 a 5 pontos.</p>
+<p>Quando as vantagens se tratam de poderes, estes são considerados como perícias, irão possuir um valor entre 1 a 5, e serão usados como perícias no jogo, sempre somados a um atributo básico indicado na vantagem.</p>
+<p>Algumas vantagens possuem níveis que variam de 1 a 5, cada um com seu custo em pontos. Todas as vantagens precisam ser autorizadas pelo mestre. Nesse caso, comprar uma vantagem de valor maior significa que o personagem tem o domínio das de valores menores.</p>
+<p>Ex.: Raio de Fogo 1 permite causar 1d6 de dano em 1m de distância, gastando 1 PE, Raio de Fogo 2 permite 2d6 a 2m de distância, gastando 2 PEs. Se o personagem comprar Raio de Fogo 3 (3d6 a 4m de distância) ele pode também usar o Raio de Fogo 2 e Raio de Fogo 1 (gastando menos PEs para usar).</p>
+<p>Os pontos que o jogador pode usar para comprar vantagens depende do tipo de aventura. Seguem algumas sugestões:</p>
+<p><strong>Aventuras Realistas:</strong> Só pode comprar Vantagens comprando pontos extras de Desvantagens, máximo de 5 pontos de Vantagens.</p>
+<p><strong>Aventuras Heroicas:</strong> Personagem começa com 5 pontos de Vantagens, e pode usar 5 pontos extras de Desvantagens.</p>
+<p><strong>Aventuras Sobre Humanas:</strong> Personagem começa com 10 pontos de Vantagens, e pode usar até 5 pontos de Desvantagens.</p>
+<p><strong>Aventuras Épicas:</strong> Personagem começa com 15 pontos de Vantagens, e pode usar até 5 pontos de Desvantagens e pode usar vantagens e perícias épicas.</p>
+<p><strong>Aventuras Divinas:</strong> Personagem começa com 20 pontos de Vantagens, e pode usar até 5 pontos de Desvantagens e pode usar vantagens e perícias épicas e divinas.</p>
+<p>Como tudo é customizável no +2d6, um mestre pode permitir personagens humanos (atributos de 1 a 5) comprar Vantagens Épicas ou Divinas se essa for a proposta da aventura (humanos normais que ganham um poder cósmico, apesar de continuarem com o resto de seus atributos no limite humano).</p>
+<h2 id="pontos-de-energia-pes"><a class="header" href="#pontos-de-energia-pes">Pontos de Energia (PEs)</a></h2>
+<p>PEs são usados nos jogos que usam alguma forma de Pontos de Energia ou Pontos de Mana para magias, poderes sobrenaturais, etc. Os PEs são calculados somando POD+10 (aventuras de nível baixo de poder), POD+20 (aventuras de nível médio de poder) ou POD+30 (aventuras de nível alto de poder). Quando o personagem usa um poder ele retira dos seus PEs totais o quanto foi gasto. A velocidade de recuperação de PEs também varia de cenário para cenário. Seguem algumas sugestões:</p>
+<p><strong>Cenários Realistas</strong>: Todos os PEs se recuperam de um dia para o outro, precisa de pelo menos 8 horas de sono ou descanso.</p>
+<p><strong>Cenários Heroicos</strong>: 5 PEs a cada hora de descanso, não precisa ser horas diretas de descanso.</p>
+<p><strong>Cenários Épicos</strong>: Os PEs se recuperam entre um combate e outro ou entre uma cena e outra do jogo.</p>
+<h2 id="tabela-de-referência-para-criar-vantagens"><a class="header" href="#tabela-de-referência-para-criar-vantagens">Tabela de Referência para Criar Vantagens</a></h2>
+<p>A criação de Vantagens e Desvantagens para +2d6 deve ser totalmente customizável para o tipo de aventura que o mestre deseja rolar. Ele pensa que tipo de poderes os jogadores irão usar, cria os custos que variam de 1 (vantagem pequena) até 5 (vantagem extraordinária), dentro do nível de poder desejado.</p>
+<p>As sugestões nas tabelas a seguir são apenas para serem usadas como referência, mas o mestre é livre para criar as vantagens da maneira que quiser, dependendo do estilo da aventura, do poder dos inimigos e do poder que os PdJs (Personagens dos Jogadores) deverão ter. Pode-se também combinar características entre as tabelas, porém, se alguma característica de vantagem épica ou divina, a vantagem é automaticamente considerada épica ou divina.</p>
+<h3 id="tabela-1-de-sugestões-para-criação-de-vantagens-humanas-e-sobre-humanas"><a class="header" href="#tabela-1-de-sugestões-para-criação-de-vantagens-humanas-e-sobre-humanas">Tabela 1 de Sugestões para Criação de Vantagens Humanas e Sobre Humanas:</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Custo</th><th>Área</th><th>Alcance</th><th>Efeito</th><th>Dano</th><th>Bônus de Atributo/Dano</th><th>Velocidade</th><th>Armadura</th></tr>
+</thead>
+<tbody>
+<tr><td>1pt</td><td>1x1m a 5x5m</td><td>1m a 5m</td><td>Atordoar, Pasmar, Confundir</td><td>1d6</td><td>+1</td><td>5m/s ou 20km/h</td><td>RD 1 a 3</td></tr>
+<tr><td>2pts</td><td>6x6m a 10x10m</td><td>6m a 10m</td><td>Imobilizar, Cegar, Ensurdecer</td><td>2d6</td><td>+2</td><td>10m/s ou 40km/h</td><td>RD 4 a 6</td></tr>
+<tr><td>3pts</td><td>11x11m a 20x20m</td><td>11m a 20m</td><td>Envenenar, Transformar, Enlouquecer, Decepar</td><td>3d6</td><td>+3</td><td>20m/s ou 80km/h</td><td>RD 7 a 9</td></tr>
+<tr><td>4pts</td><td>21x21m a 50x50m</td><td>21m a 50m</td><td>Petrificar, Expulsar, Teleportar</td><td>4d6</td><td>+4</td><td>40m/s ou 160km/h</td><td>RD 10 a 12</td></tr>
+<tr><td>5pts</td><td>51x51m a 100x100m</td><td>50m a 100m</td><td>Matar, Desintegrar, Destruir Alma</td><td>5d6</td><td>+5</td><td>60m/s ou 240km/h</td><td>RD 13 a 15</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="tabela-2-de-sugestões-para-criação-de-vantagens-humanas-e-sobre-humanas"><a class="header" href="#tabela-2-de-sugestões-para-criação-de-vantagens-humanas-e-sobre-humanas">Tabela 2 de Sugestões para Criação de Vantagens Humanas e Sobre Humanas:</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Custo</th><th>Alvos</th><th>Carga</th><th>Teleporte</th><th>Custo em PEs</th><th>Bônus de Perícia</th><th>Duração</th></tr>
+</thead>
+<tbody>
+<tr><td>1pt</td><td>O próprio personagem ou 1 alvo</td><td>de 1kg a 10kg</td><td>de 1 a 5m</td><td>1</td><td>+1</td><td>1 rodada (combate) / 10 min (narrativa)</td></tr>
+<tr><td>2pts</td><td>2 alvos</td><td>de 11kg a 50kg</td><td>de 6 a 10m</td><td>2</td><td>+2</td><td>3 rodadas (combate) / 30 min (narrativa)</td></tr>
+<tr><td>3pts</td><td>3 alvos</td><td>de 51kg a 100kg</td><td>de 11m a 30m</td><td>3</td><td>+3</td><td>6 rodadas (combate) / 1h (narrativa)</td></tr>
+<tr><td>4pts</td><td>4 alvos</td><td>de 101kg a 200kg</td><td>de 31 a 100m</td><td>4</td><td>+4</td><td>10 rodadas (combate) / 5h (narrativa)</td></tr>
+<tr><td>5pts</td><td>5 alvos</td><td>de 201kg a 400kg</td><td>de 101m a 1km</td><td>5</td><td>+5</td><td>20 rodadas (combate) / 10h (narrativa)</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="tabela-3-de-sugestões-para-criação-de-vantagens-épicas-e-divinas"><a class="header" href="#tabela-3-de-sugestões-para-criação-de-vantagens-épicas-e-divinas">Tabela 3 de Sugestões para Criação de Vantagens Épicas e Divinas:</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Custo</th><th>Área</th><th>Alcance</th><th>Efeito</th><th>Dano</th><th>Bônus em Atributo ou Dano</th><th>Velocidade</th><th>Armadura</th></tr>
+</thead>
+<tbody>
+<tr><td>1pt</td><td>1x1km a 10x10km</td><td>1km a 10km</td><td>Todos os efeitos</td><td>5d6</td><td>+1</td><td>100m/s ou 400km/h</td><td>RD 15 a 18</td></tr>
+<tr><td>2pts</td><td>11x11km a 50x50km</td><td>11km a 50km</td><td>Todos os efeitos</td><td>6d6</td><td>+2</td><td>500m/s ou 2.000km/h</td><td>RD 19 a 21</td></tr>
+<tr><td>3pts</td><td>51x51km a 100x100km</td><td>51km a 100km</td><td>Todos os efeitos</td><td>7d6</td><td>+3</td><td>1.000m/s ou 4.000km/h</td><td>RD 22 a 25</td></tr>
+<tr><td>4pts</td><td>101x101km a 500x500km</td><td>101km a 500km</td><td>Todos os efeitos</td><td>8d6</td><td>+4</td><td>5.000m/s ou 20.000km/h</td><td>RD 26 a 29</td></tr>
+<tr><td>5pts</td><td>501x501km a 1000x1000km</td><td>501km a 1000km</td><td>Todos os efeitos</td><td>10d6</td><td>+5</td><td>10.000m/s ou 40.000km/h</td><td>RD 30 a 33</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="tabela-4-de-sugestões-para-criação-de-vantagens-épicas-ou-divinas"><a class="header" href="#tabela-4-de-sugestões-para-criação-de-vantagens-épicas-ou-divinas">Tabela 4 de Sugestões para Criação de Vantagens Épicas ou Divinas:</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Custo</th><th>Alvos</th><th>Carga</th><th>Teleporte</th><th>Custo em PEs</th><th>Bônus de Perícia</th><th>Duração</th></tr>
+</thead>
+<tbody>
+<tr><td>1pt</td><td>Todos os alvos em 10x10km</td><td>de 1ton a 10tons</td><td>de 10 a 50 km</td><td>6</td><td>+1</td><td>1 rodada (combate) / 1 dia (narrativa)</td></tr>
+<tr><td>2pts</td><td>Todos os alvos em 50x50km</td><td>de 11tons a 100tons</td><td>de 51 a 100 km</td><td>8</td><td>+2</td><td>3 rodadas (combate) / 7 dias (narrativa)</td></tr>
+<tr><td>3pts</td><td>Todos os alvos em 100x100km</td><td>de 101tons a 500tons</td><td>de 101 a 500 km</td><td>10</td><td>+3</td><td>10 rodadas (combate) / 14 dias (narrativa)</td></tr>
+<tr><td>4pts</td><td>Todos os alvos em 500x500km</td><td>de 501 tons a 1000tons</td><td>de 501 a 1000 km</td><td>12</td><td>+4</td><td>20 rodadas (combate) / 1 mês (narrativa)</td></tr>
+<tr><td>5pts</td><td>Todos os alvos em 1000x1000km</td><td>de 1000tons a 5000tons</td><td>de 1001 a 5000 km</td><td>14</td><td>+5</td><td>30 rodadas (combate) / 1 ano (narrativa)</td></tr>
+</tbody>
+</table>
+</div>
+<p>Essas tabelas e as vantagens listadas abaixo são apenas parâmetros para que o mestre crie as próprias vantagens para sua aventura.</p>
+<p>Vantagens podem e devem combinar valores de diversos custos, porém o custo final será sempre o maior parâmetro usado. Assim uma vantagem sobre-humana de 1 alvo (custo 1) que causa 5d6 de dano (custo 4) e exigindo 2 PEs para ser usada (custo 2) a 6m de distância (custo 2), custaria 4 pontos.</p>
+<p>Uma dica para balancear os poderes é colocar um alto custo em PEs para poderes mais épicos. Pode-se também não usar PEs (Pontos de Energia ou Magia) e estabelecer limites para o uso dos poderes. Ou pode-se deixar os poderes livres de custos em PEs, lembre-se que o +2d6 é customizável!</p>
+<p>Cada aventura precisa de vantagens adaptadas aos limites que o mestre deseja que os personagens dos jogadores possuam.</p>
+<p>Vantagens épicas e divinas dependem do contexto da aventura, abrangem centenas de quilômetros, alteram clima de cidades, etc.</p>
+<h2 id="lista-de-vantagens"><a class="header" href="#lista-de-vantagens">Lista de Vantagens</a></h2>
+<p>As vantagens estão ordenadas pelo Nome, Atributo Básico relacionado, Custo em Pontos de Vantagens e descrição do efeito. O atributo básico relacionado é o atributo normalmente usado em testes com relação à vantagem. Quando as vantagens tiverem níveis diferentes, o custo em pontos estará descrito. Algumas vantagens não possuem atributo básico relacionado.</p>
+<h3 id="absorção-de-dano-con"><a class="header" href="#absorção-de-dano-con">Absorção de Dano (CON)</a></h3>
+<p>Ao gastar 2 PEs, o personagem absorve o dano sofrido instantaneamente.</p>
+<ul>
+<li><strong>1 ponto :</strong> Absorve 3 de dano</li>
+<li><strong>2 pontos:</strong> Absorve 6 de dano</li>
+<li><strong>3 pontos:</strong> Absorve 9 de dano</li>
+<li><strong>4 pontos:</strong> Absorve 12 de dano</li>
+<li><strong>5 pontos:</strong> Absorve 15 de dano</li>
+</ul>
+<h3 id="adaptabilidade-cultural-int"><a class="header" href="#adaptabilidade-cultural-int">Adaptabilidade Cultural (INT)</a></h3>
+<ul>
+<li><strong>1 ponto:</strong> O personagem consegue se adaptar a ambientes culturais ou alienígenas totalmente diferentes do que está acostumado. Ganha +2 em testes de Carisma em ambientes de cultura estranha.</li>
+</ul>
+<h3 id="aliados-car"><a class="header" href="#aliados-car">Aliados (CAR)</a></h3>
+<p>PdMs (Personagens do Mestre) que estarão à disposição do personagem.</p>
+<ul>
+<li><strong>1 ponto :</strong> 1 aliado</li>
+<li><strong>2 pontos:</strong> 2 aliados</li>
+<li><strong>3 pontos:</strong> 3 aliados</li>
+</ul>
+<h3 id="ambidestria-des"><a class="header" href="#ambidestria-des">Ambidestria (DES)</a></h3>
+<ul>
+<li><strong>1 ponto:</strong> Pode agir com a mão e o braço não dominante (direito se for canhoto, esquerdo se for destro) sem a penalidade de -6.</li>
+</ul>
+<h3 id="anfíbio-con"><a class="header" href="#anfíbio-con">Anfíbio (CON)</a></h3>
+<ul>
+<li><strong>2 pontos:</strong> Pode respirar debaixo d’água.</li>
+</ul>
+<h3 id="aparência-car"><a class="header" href="#aparência-car">Aparência (CAR)</a></h3>
+<ul>
+<li><strong>1 ponto:</strong> Aparência bela, acima da média, +2 em testes sociais.</li>
+<li><strong>2 pontos:</strong> Aparência belíssima, muito acima da média, +4 em testes sociais.</li>
+<li><strong>3 pontos :</strong> Aparência de modelo de nível internacional, +6 em testes sociais.</li>
+</ul>
+<h3 id="ataque-especial-todos-os-atributos"><a class="header" href="#ataque-especial-todos-os-atributos">Ataque Especial (Todos os Atributos)</a></h3>
+<p>O personagem possui um ataque especial baseado em um dos seus atributos. O ataque é feito com o ATRIBUTO+Perícia Específica vs. um teste de defesa do alvo (2d6+Atributo de defesa+Perícia específica).</p>
+<ul>
+<li><strong>1 ponto:</strong> Gasta 1 PEs e dá +1d6 de dano extra em um alvo.</li>
+<li><strong>2 pontos:</strong> Gasta 2 PEs e dá +2d6 de dano extra em um alvo ou +1d6 de dano extra em dois alvos.</li>
+<li><strong>3 pontos:</strong> Gasta 3 PEs e dá +3d6 de dano extra em um alvo ou +2d6 de dano extra em dois alvos, ou +1d6 de dano extra em três alvos.</li>
+<li><strong>4 pontos:</strong> Gasta 4 PEs e dá +4d6 de dano extra em um alvo ou +3d6 de dano extra em dois alvos, ou +2d6 de dano extra em três alvos.</li>
+<li><strong>5 pontos:</strong> Gasta 5 PEs e dá +5d6 de dano extra em um alvo ou +4d6 de dano extra em dois alvos, ou +3d6 de dano extra em três alvos.</li>
+</ul>
+<h3 id="aumento-de-velocidade-des"><a class="header" href="#aumento-de-velocidade-des">Aumento de velocidade (DES)</a></h3>
+<ul>
+<li><strong>3 pontos:</strong> Gastando 4 PEs, o personagem pode aumentar a velocidade do seu corpo, ganhando DES+10, durante 10 minutos.</li>
+</ul>
+<h3 id="aumento-da-densidade-pod"><a class="header" href="#aumento-da-densidade-pod">Aumento da densidade (POD)</a></h3>
+<ul>
+<li><strong>3 pontos:</strong> Gastando 3 PEs, o personagem pode aumentar a densidade do seu corpo, ganhando RD (resistência a dano) 15. durante 10 minutos.</li>
+</ul>
+<h3 id="braços-cibernéticos-des-e-for"><a class="header" href="#braços-cibernéticos-des-e-for">Braços Cibernéticos (DES e FOR)</a></h3>
+<ul>
+<li><strong>4 pontos:</strong> Implementos cibernéticos nos braços. Precisa ser recarregado frequentemente (seja com eletricidade, carvão no caso de steampunk, energia mágica, etc.) e precisa de manutenção. Com o gasto de 2 PEs, a DES e FOR para tarefas envolvendo os braços cibernéticos aumenta em +4 durante 10 minutos, aumentando o dano pelo valor de Força segundo a tabela de Força. Os braços podem dar um choque elétrico com toque, de 2d6 de dano, se o personagem gastar 4 PEs.</li>
+</ul>
+<h3 id="camaleão-car"><a class="header" href="#camaleão-car">Camaleão (CAR)</a></h3>
+<ul>
+<li><strong>3 pontos:</strong> Gasta 3 PEs e altera a aparência para de um indivíduo que já vira antes. Pode mudar alterar sua altura diminuindo ou aumentando até ¼ de sua altura normal. O personagem ganha +4 de modificador de Carisma em testes sociais para se fizer passar pelo indivíduo que está copiando.</li>
+<li><strong>5 pontos:</strong> Gasta 5 PEs e altera sua aparência para qualquer tipo de ser vivo, ataques causam dano igual a 2d6, pode se transformar em uma criatura de tamanho igual à metade do seu tamanho normal, até uma criatura de tamanho igual a duas vezes o seu tamanho normal.</li>
+</ul>
+<h3 id="carga-extra-for"><a class="header" href="#carga-extra-for">Carga Extra (FOR)</a></h3>
+<ul>
+<li><strong>2 pontos:</strong> Personagem usa FOR+3 para calcular a Carga que pode carregar.</li>
+</ul>
+<h3 id="corajoso-int"><a class="header" href="#corajoso-int">Corajoso (INT)</a></h3>
+<ul>
+<li><strong>1 ponto:</strong> +2 nos testes de medo e insanidade. Se gastar mais pontos, ganha +2 para cada ponto gasto, até um máximo de +10 (5 pontos).</li>
+</ul>
+<h3 id="corpo-de-água-con"><a class="header" href="#corpo-de-água-con">Corpo de Água (CON)</a></h3>
+<ul>
+<li><strong>5 pontos:</strong> O corpo do personagem é feito de água. Ganha armadura natural de RD 5. Não sofre penalidades por ferimentos. Forma maleável. Pode tentar afogar o oponente envolvendo-o com seu corpo e causando 2d6+3 por rodada. Se chegar a 0 PVs morre, com o corpo dissolvendo.</li>
+</ul>
+<h3 id="corpo-de-ar-con"><a class="header" href="#corpo-de-ar-con">Corpo de Ar (CON)</a></h3>
+<ul>
+<li><strong>5 pontos:</strong> O corpo do personagem é feito de ar. Forma maleável. Só pode ser afetado por ataques de energia (fogo, eletricidade, etc.). Gastando 2 PE pode voar a até 60 km por hora durante 10 minutos. Se chegar a 0 PVs morre, com o corpo dissipando no ar. Não sofre ferimentos ou penalidade por ferimentos. Ataques causam dano igual ao dano relativo a FOR, porém podem ser feitos a até 10 metros de distância (ventania).</li>
+</ul>
+<h3 id="corpo-de-fogo-con"><a class="header" href="#corpo-de-fogo-con">Corpo de Fogo (CON)</a></h3>
+<ul>
+<li><strong>5 pontos:</strong> O corpo do personagem é feito de fogo. Forma maleável. Seu toque causa 2d6 extras de dano de fogo. Sofre 1d6 de dano extra sempre que sofrer ataque com água ou gelo. Não sofre penalidades por ferimentos,mas pode ter membros amputados. Gastando 2 PE pode esticar um dos membros a até 3 metros. Se chegar a 0 PVs morre, com o corpo dissolvendo. Ataques causam dano igual ao dano relativo a FOR, porém podem ser feitos a até 3 metros de distância. Pode voar a um Deslocamento de 10 m/s ou 36km/hora. Solta um raio de fogo a até 10 metros que causa 2d6+3 de dano.</li>
+</ul>
+<h3 id="corpo-de-gelo-con"><a class="header" href="#corpo-de-gelo-con">Corpo de Gelo (CON)</a></h3>
+<ul>
+<li><strong>5 pontos:</strong> O corpo do personagem é feito de gelo. Ganha armadura natural de RD 5. Não sofre penalidades por ferimentos,mas pode ter membros amputados. Toque causa 1d6 de dano extra de gelo. Gastando 2 PE pode esticar um dos membros a até 3 metros. Se chegar a 0 PVs morre, com o corpo dissolvendo. Ataques causam dano igual ao dano relativo a FOR, porém podem ser feitos a até 3 metros de distância. Solta um raio de gelo a até 10 metros que causa 2d6+3 de dano.</li>
+</ul>
+<h3 id="corpo-de-metal-con"><a class="header" href="#corpo-de-metal-con">Corpo de Metal (CON)</a></h3>
+<ul>
+<li><strong>5 pontos:</strong> O corpo do personagem é feito de metal. Ganha armadura natural de RD 10. Imune a dano por projéteis, se o total de dano for menor que 20. Não sofre penalidades por ferimentos,mas pode ter membros amputados. Causa 1d6+FOR+4 de dano em ataques corporais. Se chegar a 0 PVs morre, com o corpo dissolvendo. O peso normal aumenta em 200 kg.</li>
+</ul>
+<h3 id="corpo-de-terra-con"><a class="header" href="#corpo-de-terra-con">Corpo de Terra (CON)</a></h3>
+<ul>
+<li><strong>5 pontos:</strong> O corpo do personagem é feito de terra. Ganha armadura natural de RD 10. Não sofre penalidades por ferimentos,mas pode ter membros amputados. Gastando 2 PE pode esticar um dos membros a até 3 metros. Se chegar a 0 PVs morre, com o corpo dissolvendo. Ataques causam dano igual ao dano relativo a FOR, porém podem ser feitos a até 3 metros de distância.</li>
+</ul>
+<h3 id="corpo-de-pedra-con"><a class="header" href="#corpo-de-pedra-con">Corpo de Pedra (CON)</a></h3>
+<ul>
+<li><strong>5 pontos:</strong> O corpo do personagem é feito de metal. Ganha armadura natural de RD 10. Não sofre penalidades por ferimentos,mas pode ter membros amputados. Causa 1d6+FOR+4 de dano em ataques corporais. Se chegar a 0 PVs morre, com o corpo dissolvendo. O peso normal aumenta em 200 kg.</li>
+</ul>
+<h3 id="crescimento-for"><a class="header" href="#crescimento-for">Crescimento (FOR)</a></h3>
+<ul>
+<li><strong>3 pontos:</strong> Gastando 3 PEs o personagem aumenta seu tamanho em ½ do seu tamanho original durante 10 minutos. Assim, se originalmente o personagem tiver altura igual a 1,80m ele passa a ter 2,70m. Nesse caso ele fica com FOR+5, CON+5,DES+5, com limite de 22 para personagens humanos e sobre-humanos.</li>
+<li><strong>4 pontos:</strong> Gastando 4 PEs o personagem duplica o seu tamanho original durante 20 minutos. Assim, se originalmente o personagem tiver altura igual a 1,80m ele passa a ter 3,60m. Nesse caso ele fica com FOR+8, CON+8,DES+8; com limite de 22, para personagens humanos e sobre-humanos.</li>
+<li><strong>5 pontos:</strong> Gastando 5 PEs o personagem triplica seu tamanho original durante 30 minutos. Assim, se originalmente o personagem tiver altura igual a 1,80m ele passa a ter 5,40m. Nesse caso ele fica com FOR+6, CON+6,DES+6 com limite de 10 para personagens humanos e sobre-humanos.</li>
+</ul>
+<h3 id="defesa-mental-int"><a class="header" href="#defesa-mental-int">Defesa Mental (INT)</a></h3>
+<ul>
+<li><strong>1 ponto:</strong>+4 no teste de INT contra ataques mentais.</li>
+<li><strong>2 pontos:</strong>+6 no teste de INT contra ataques mentais.</li>
+<li><strong>3 pontos:</strong>+8 no teste de INT contra ataques mentais.</li>
+</ul>
+<h3 id="defesa-ampliada-des"><a class="header" href="#defesa-ampliada-des">Defesa Ampliada (DES)</a></h3>
+<ul>
+<li><strong>2 pontos:</strong> Personagem ganha +2 no teste de DES quando estiver se defendendo no combate usando um escudo ou aparando com uma arma de mão. Se gastar mais pontos, o bônus sobe até +6 (5 pontos), +1 para cada ponto gasto comprando esta vantagem.</li>
+</ul>
+<h3 id="deslocamento-ampliado-des"><a class="header" href="#deslocamento-ampliado-des">Deslocamento Ampliado (DES)</a></h3>
+<ul>
+<li><strong>2 pontos:</strong> Personagem aumenta seu deslocamento em +2 m/s. Se gastar mais pontos, o bônus sobe +1 para cada ponto adicional gasto comprando essa vantagem, até um máximo de +6 no deslocamento (5 pontos).</li>
+</ul>
+<h3 id="destino-car"><a class="header" href="#destino-car">Destino (CAR)</a></h3>
+<ul>
+<li><strong>5 pontos:</strong> O personagem tem um destino determinado (será um rei, libertará determinado povo, é o messias de uma profecia). Em momentos dramáticos em que seu destino pode não ser realizado, ele invoca o destino, e seguindo a autorização do mestre, recebe um bônus de +12 em uma rolagem de dados; ou altera a narrativa para que seu destino se cumpra. O personagem pode fazer isso apenas uma vez por sessão de jogo, ou a cada 4 horas de jogo.</li>
+</ul>
+<h3 id="direção-absoluta-sab"><a class="header" href="#direção-absoluta-sab">Direção Absoluta (SAB)</a></h3>
+<ul>
+<li><strong>1 ponto:</strong> Nunca se perde, como se tivesse uma bússola embutida no cérebro, sempre sabe onde é o norte, voltar pelo caminho que fez, etc.</li>
+</ul>
+<h3 id="duplicação-int"><a class="header" href="#duplicação-int">Duplicação (INT)</a></h3>
+<ul>
+<li><strong>3 pontos:</strong> Ao custo de 2 PEs, o personagem pode criar uma cópia de si mesmo, idêntico em todos os sentidos. A cópia fica ativa durante 1 minuto (10 rodadas) até desaparecer. <strong>Perícia Duplicação 3</strong>. O personagem precisa ser bem sucedido em um teste de INT+Duplicação toda rodada de combate para controlar a cópia, se não passar. Fora de combate, ao passar em um teste de INT+Duplicação, a cópia criada fica ativa por 10 minutos. Se a cópia for destruída antes de ser dispensada pelo personagem, o personagem sofre 2 de dano.</li>
+<li><strong>4 pontos:</strong> Ao custo de 2 PEs, o mesmo que o de 3 pontos, mas o personagem cria duas cópias de si mesmo. Cada cópia que for destruída antes de ser dispensada pelo personagem que a criou causa 2 de dano no personagem. <strong>Perícia Duplicação 4</strong>.</li>
+<li><strong>5 pontos:</strong> Ao custo de 2 PEs, mesmo que o de 3 pontos, mas o personagem cria três cópias de si mesmo. Cada cópia que for destruída antes de ser dispensada pelo personagem que a criou causa 2 de dano no personagem.** Perícia Duplicação 5**.</li>
+</ul>
+<h3 id="duro-de-matar-con"><a class="header" href="#duro-de-matar-con">Duro de Matar (CON)</a></h3>
+<ul>
+<li><strong>1 ponto:</strong> O personagem tem +6 PVs extras.</li>
+<li><strong>2 pontos:</strong> O personagem tem +8 PVs extras.</li>
+<li><strong>3 pontos:</strong> O personagem tem +10 PVs extras.</li>
+<li><strong>4 pontos:</strong> O personagem tem +12 PVs extras.</li>
+<li><strong>5 pontos:</strong> O personagem tem +14 PVs extras.</li>
+</ul>
+<h3 id="energia-extra-con"><a class="header" href="#energia-extra-con">Energia Extra (CON)</a></h3>
+<ul>
+<li><strong>1 ponto:</strong> Personagem ganha +2 PEs extras. Para cada <strong>ponto adicional</strong> gasto com Energia Extra, o personagem ganha <strong>+2 PEs</strong>, até um máximo de +10 PEs extras (5 pontos).</li>
+</ul>
+<h3 id="empatia-com-animais-car"><a class="header" href="#empatia-com-animais-car">Empatia com Animais (CAR)</a></h3>
+<ul>
+<li><strong>1 ponto:</strong> Animais não atacam e pode tentar controlar ou domar um animal selvagem com um teste de CAR.</li>
+</ul>
+<h3 id="espírito-guardião-especial-ou-pod"><a class="header" href="#espírito-guardião-especial-ou-pod">Espírito Guardião (especial ou POD)</a></h3>
+<ul>
+<li><strong>4 pontos:</strong> Gastando 4 PEs o personagem invoca seu Espírito Guardião, um ser espiritual/criatura mágica/construto nanotecnológico etc. Esse Espírito possui poderes e está sob o total controle do personagem. O jogador do personagem cria o Espírito Guardião com os seguintes pontos: 30 pontos de Atributos, 20 pontos de Perícias, 5 pontos de Vantagens, com limite de 22 para aventuras de nível de poder humana ou sobre-humana.</li>
+</ul>
+<h3 id="estômago-de-ferro-con"><a class="header" href="#estômago-de-ferro-con">Estômago de Ferro (CON)</a></h3>
+<ul>
+<li><strong>1 ponto:</strong> Personagem é imune a venenos, a intoxicação ou qualquer tipo de dano via comida.</li>
+</ul>
+<h3 id="esquiva-ampliada-des"><a class="header" href="#esquiva-ampliada-des">Esquiva Ampliada (DES)</a></h3>
+<ul>
+<li><strong>2 pontos:</strong> Personagem tem um bônus de +3 no teste de DES quando estiver se defendendo em combate. Se gastar mais pontos, o bônus sobe até +6 (5 pontos), +1 para cada ponto gasto comprando esta vantagem.</li>
+</ul>
+<h3 id="familiares-int-ou-car"><a class="header" href="#familiares-int-ou-car">Familiares (INT ou CAR)</a></h3>
+<ul>
+<li><strong>2 pontos:</strong> O personagem possui uma pequena criatura (animal, espírito, capetinha, etc.) inteligente, que o segue para todos os lugares, entende comandos simples e pode levar mensagens por ele. Gastando 2 PEs o personagem pode ver pelos olhos do familiar por 10 minutos. Outro gasto de 2 PEs permite um contato telepático com o familiar, para passar e receber mensagens simples. O familiar possui 10 pontos de atributos e 10 pontos de perícia.</li>
+</ul>
+<h3 id="favor-divino-car"><a class="header" href="#favor-divino-car">Favor Divino (CAR)</a></h3>
+<ul>
+<li><strong>3 pontos:</strong> O personagem invoca o seu deus, ou usa o poder de sua fé para receber um auxílio em uma cena narrativa do jogo ou +6 em uma rolagem de dados. Pode fazer isso uma vez por sessão de jogo, ou uma vez a cada 4 horas de jogo.</li>
+</ul>
+<h3 id="flexibilidade-des"><a class="header" href="#flexibilidade-des">Flexibilidade (DES)</a></h3>
+<ul>
+<li><strong>1 pontos:</strong> O personagem ganha +2 nos testes para escapar de agarrões, entrar em locais estreitos, e fazer tarefas onde a flexibilidade conta.</li>
+</ul>
+<h3 id="gadgeteer-int"><a class="header" href="#gadgeteer-int">Gadgeteer (INT)</a></h3>
+<ul>
+<li><strong>1 ponto:</strong> Personagem pode criar geringonças eletrônicas, mecânicas, de tecnologia a vapor, alquímicas etc. com 10 pontos de atributo, 5 de perícia e 1 ponto de vantagens. Dano varia de acordo com a FOR dada à geringonça.</li>
+<li><strong>2 pontos:</strong> Personagem pode criar geringonças eletrônicas, mecânicas, de tecnologia a vapor, alquímicas etc. com 15 pontos de atributo, 10 de perícia e 2 pontos de vantagens. Dano varia de acordo com a FOR dada à geringonça.</li>
+<li><strong>3 pontos:</strong> Personagem pode criar geringonças eletrônicas, mecânicas, de tecnologia a vapor, alquímicas etc. com 20 pontos de atributo, 15 de perícia e 3 pontos de vantagens. Dano varia de acordo com a FOR dada à geringonça.</li>
+<li><strong>4 pontos:</strong> Personagem pode criar geringonças eletrônicas, mecânicas, de tecnologia a vapor, alquímicas etc. com 25 pontos de atributo, 20 de perícia e 4 pontos de vantagens. Dano varia de acordo com a FOR dada à geringonça.</li>
+<li><strong>5 pontos:</strong> Personagem pode criar geringonças eletrônicas, mecânicas, de tecnologia a vapor, alquímicas etc. com 30 pontos de atributo, 20 de perícia e 5 pontos de vantagens.</li>
+</ul>
+<h3 id="garras-for"><a class="header" href="#garras-for">Garras (FOR)</a></h3>
+<ul>
+<li><strong>1 ponto:</strong> garras naturais ou implantadas, dano +2. O dano pode aumentar em +1 para cada ponto gasto nessa vantagem; assim 5pts equivalem a garras +6 de dano. As garras diminuem a penalidade da mão não dominante em ataque duplo em -2.</li>
+</ul>
+<h3 id="guelras-con"><a class="header" href="#guelras-con">Guelras (CON)</a></h3>
+<ul>
+<li><strong>1 ponto:</strong> O personagem pode respirar debaixo d’água.</li>
+</ul>
+<h3 id="herdeiro-car"><a class="header" href="#herdeiro-car">Herdeiro (CAR)</a></h3>
+<ul>
+<li><strong>3 pontos:</strong> O personagem é herdeiro de uma fortuna considerável e tem acesso a grandes recursos financeiros, de acordo com o que o mestre determinar.</li>
+<li><strong>4 pontos:</strong> O personagem é herdeiro de uma fortuna imensa, e tem acesso a imensos recursos financeiros, de acordo com o que o mestre determinar.</li>
+<li><strong>5 pontos:</strong> O personagem é herdeiro de uma fortuna ilimitada e tem acesso a recursos ilimitados, de acordo com o que o mestre determinar.</li>
+</ul>
+<h3 id="identidade-alternativa-car"><a class="header" href="#identidade-alternativa-car">Identidade Alternativa (CAR)</a></h3>
+<p>O personagem possui uma identidade alternativa, completamente legal.</p>
+<ul>
+<li><strong>1 ponto:</strong> 1 identidade alternativa.</li>
+<li><strong>2 pontos:</strong> 2 identidades alternativas.</li>
+<li><strong>3 pontos:</strong> 3 identidades alternativas.</li>
+</ul>
+<h3 id="imortalidade-pod"><a class="header" href="#imortalidade-pod">Imortalidade (POD)</a></h3>
+<ul>
+<li><strong>5 pontos:</strong> Caso o personagem morra completamente, ele retorna à vida depois de 1d6 dias, regenerando completamente o seu corpo (mesmo se tenha sido destruído). Para um personagem ser imortal, o mestre e o jogador deverão definir qual é a única coisa que pode matar completamente o personagem,o poder imortalidade tem sempre que ter algum tipo de ponto fraco. Por exemplo, decapitação com Vampiros, balas de prata para Lobisomens, etc.</li>
+</ul>
+<h3 id="imunidade-à-doença-con"><a class="header" href="#imunidade-à-doença-con">Imunidade à Doença (CON)</a></h3>
+<ul>
+<li><strong>2 pontos:</strong> O personagem é imune a qualquer tipo de doença, de nível de poder humano e sobre-humano.</li>
+</ul>
+<h3 id="imunidade-a-veneno-con"><a class="header" href="#imunidade-a-veneno-con">Imunidade a Veneno (CON)</a></h3>
+<ul>
+<li><strong>2 pontos:</strong> O personagem é imune a qualquer tipo de veneno, de nível de poder humano e sobre-humano.</li>
+</ul>
+<h3 id="imunidade-a-ataques-mentais-int-ou-pod"><a class="header" href="#imunidade-a-ataques-mentais-int-ou-pod">Imunidade a Ataques Mentais (INT ou POD)</a></h3>
+<ul>
+<li><strong>3 pontos:</strong> O personagem é imune a qualquer tipo de ataque mental de nível de poder humano e sobre humano.</li>
+</ul>
+<h3 id="imunidade-jurídica-car"><a class="header" href="#imunidade-jurídica-car">Imunidade Jurídica (CAR)</a></h3>
+<ul>
+<li><strong>1 ponto:</strong> Por algum motivo o personagem não pode ser julgado criminalmente pela justiça comum.</li>
+</ul>
+<h3 id="insubstancialidade-pod"><a class="header" href="#insubstancialidade-pod">Insubstancialidade (POD)</a></h3>
+<ul>
+<li><strong>4 pontos:</strong> O personagem possui um corpo insubstancial, que o torna imune a ataques físicos, apesar de poder ser afetado por ataques mágicos e de energia.</li>
+</ul>
+<h3 id="invisibilidade-pod"><a class="header" href="#invisibilidade-pod">Invisibilidade (POD)</a></h3>
+<ul>
+<li><strong>4 pontos:</strong> Com o gasto de 4 PEs, o personagem fica invisível por 10 minutos e só pode ser percebido por sensores não óticos (visão de calor, sensores de vibração, etc.).</li>
+</ul>
+<h3 id="invisibilidade-a-máquinas-pod"><a class="header" href="#invisibilidade-a-máquinas-pod">Invisibilidade a Máquinas (POD)</a></h3>
+<ul>
+<li><strong>2 pontos:</strong> O personagem não pode ter sua imagem capturada por nenhum tipo de aparelho ou máquina, não aparece em vídeo nem em fotos.</li>
+</ul>
+<h3 id="invulnerabilidade-pod"><a class="header" href="#invulnerabilidade-pod">Invulnerabilidade (POD)</a></h3>
+<ul>
+<li><strong>5 pontos:</strong> O personagem é imune a qualquer tipo de dano físico e de energia, balas refletem dele, passa imune por explosões, etc. Pode sofrer dano por gás se precisar respirar, e pode sofrer dano por meio de poderes mentais ou magia.</li>
+</ul>
+<h3 id="memória-eidética-int"><a class="header" href="#memória-eidética-int">Memória Eidética (INT)</a></h3>
+<ul>
+<li><strong>3 pontos:</strong> O personagem possui uma memória fotográfica, e se lembra de tudo que conseguiu botar os olhos na vida. Todas as vezes que durante a narrativa for necessário algum tipo de informação obscura, o personagem pode rolar Perícia Memória Eidética 3+INT mais penalidades pela dificuldade do assunto, se for bem sucedido o personagem se lembrou daquele assunto. Pode-se usar pontos extras para elevar a Perícia Memória Eidética até 5, ao custo de um por um.</li>
+</ul>
+<h3 id="membros-extras-des"><a class="header" href="#membros-extras-des">Membros Extras (DES)</a></h3>
+<ul>
+<li><strong>3 pontos:</strong> O personagem possui um membro extra. Em combate, esse membro extra permite mais um ataque simultâneo, sujeito às penalidades extras. Um indivíduo com um membro extra pode, por exemplo, atirar em 3 direções (2 mãos mais a mão extra) ao mesmo tempo, porém depois da mão dominante, as demais mãos sofrem penalidades crescentes (2ª mão atira a -6 e terceira mão atira a -8). Ambidestria diminui as penalidades, indo para -4 na segunda mão e -6 na terceira mão.</li>
+<li><strong>4 pontos:</strong> O personagem possui 2 membros extras, sujeitos às penalidades de ações em combate se usados em uma ação simultânea (-6 na segunda mão, -8 na terceira, -10 na quarta).</li>
+<li><strong>5 pontos:</strong> O personagem possui 3 membros extras, sujeitos às penalidades de ações em combate (-6 na segunda mão, -8 na terceira, -10 na quarta e -12 na quinta).</li>
+</ul>
+<h3 id="não-comer--beber-con"><a class="header" href="#não-comer--beber-con">Não comer / beber (CON)</a></h3>
+<ul>
+<li><strong>2 pontos:</strong> O personagem não necessita comer ou beber para sobreviver. Ele sustenta seu corpo por algum outro meio (luz solar, magia, tecnologia, etc.). Ele não perde PEs por falta de comida (perda normal de 2 PEs por dia, não recuperáveis a não ser com alimentação, por falta de comida e 4 PEs por dia, não recuperáveis a não ser com água, por falta de água).</li>
+</ul>
+<h3 id="não-dorme-con"><a class="header" href="#não-dorme-con">Não dorme (CON)</a></h3>
+<ul>
+<li><strong>1 pontos:</strong> O personagem não necessita dormir, recupera todos os PEs depois de 6 horas de descansando.</li>
+<li><strong>2 pontos:</strong> O personagem recupera todos os PEs depois de 4 horas descansando, não precisa dormir.</li>
+</ul>
+<h3 id="não-precisa-respirar-con"><a class="header" href="#não-precisa-respirar-con">Não Precisa Respirar (CON)</a></h3>
+<ul>
+<li><strong>2 pontos:</strong> O personagem não tem necessidade de oxigênio para viver, por algum motivo genético, cibernético, sobrenatural.</li>
+</ul>
+<h3 id="planarflutuar-pod"><a class="header" href="#planarflutuar-pod">Planar/Flutuar (POD)</a></h3>
+<ul>
+<li><strong>1 ponto:</strong> Gasta 1 PE e pode planar a até 50m de altura e se move seu deslocamento normal.</li>
+<li><strong>2 pontos:</strong> Gasta 2 PEs e pode planar a até 100 m de altura e mover seu deslocamento normal.</li>
+<li><strong>3 pontos:</strong> Gasta 3 PEs e pode planar a até 200m de altura e desloca a 50km/h.</li>
+<li><strong>4 pontos:</strong> Gasta 4 PEs e pode voar a até 120m de altura a uma velocidade 100km/h.</li>
+<li><strong>5 pontos:</strong> Gasta 5 PEs e pode voar a até 240m de altura a uma velocidade de 200km/h.</li>
+</ul>
+<h3 id="pontos-de-vida-extras-for"><a class="header" href="#pontos-de-vida-extras-for">Pontos de Vida Extras (FOR)</a></h3>
+<ul>
+<li><strong>1 ponto:</strong> Personagem ganha +4 PVs extras. Para cada <strong>ponto adicional</strong> gasto com Energia Extra, o personagem ganha <strong>+4 PVs</strong>, até um máximo de +20 PVs extras (5 pontos).</li>
+</ul>
+<h3 id="prontidão-sab"><a class="header" href="#prontidão-sab">Prontidão (SAB)</a></h3>
+<ul>
+<li><strong>2 pontos:</strong> +10 em jogadas de iniciativa e jamais é pego de surpresa.</li>
+</ul>
+<h3 id="queda-suave-des"><a class="header" href="#queda-suave-des">Queda Suave (DES)</a></h3>
+<ul>
+<li><strong>1 ponto:</strong> Personagem ignora 4 pontos de dano por queda.</li>
+<li><strong>2 pontos:</strong> Personagem ignora 6 pontos de dano por queda.</li>
+<li><strong>3 pontos:</strong> Personagem ignora 8 pontos de dano por queda.</li>
+<li><strong>4 pontos:</strong> Personagem ignora 10 pontos de dano por queda.</li>
+<li><strong>5 pontos:</strong> Personagem ignora 12 pontos de dano por queda.</li>
+</ul>
+<h3 id="raio-elétrico-des-ou-pod"><a class="header" href="#raio-elétrico-des-ou-pod">Raio Elétrico (DES ou POD)</a></h3>
+<ul>
+<li><strong>1 ponto:</strong> Com um gasto de 1 PE o personagem solta um Raio Elétrico que dá até 1d6 de dano (o personagem controla o dano), com alcance de 5 metros, alvo faz teste normal de CON para não ficar desmaiar por 1 rodada. Perícia Raio Elétrico 1.</li>
+<li><strong>2 pontos:</strong> Com um gasto de 2 PEs o personagem solta um Raio Elétrico que dá até 2d6 de dano (o personagem controla o dano), com alcance de 10 metros, alvo faz teste normal de CON para não ficar desmaiar por 1 rodada. Perícia Raio Elétrico 2.</li>
+<li><strong>3 pontos:</strong> Com um gasto de 3 PEs o personagem solta um Raio Elétrico que dá até 3d6 de dano (o personagem controla o dano), com alcance de 30 metros, alvo faz teste normal de CON para não ficar desmaiar por 1 rodada. Perícia Raio Elétrico 3.</li>
+<li><strong>4 pontos:</strong> Com um gasto de 4 PEs o personagem solta um Raio Elétrico que dá até 4d6 de dano (o personagem controla o dano), com alcance de 60 metros, alvo faz teste normal de CON para não ficar desmaiar por 1 rodada. Perícia Raio Elétrico 4.</li>
+<li><strong>5 pontos:</strong> Com um gasto de 5 PEs o personagem solta um Raio Elétrico que dá até 5d6 de dano (o personagem controla o dano), com alcance de 120 metros, alvo faz teste normal de CON para não ficar desmaiar por 1 rodada. Perícia Raio Elétrico 5.</li>
+</ul>
+<h3 id="reflexos-em-combate-des"><a class="header" href="#reflexos-em-combate-des">Reflexos em Combate (DES)</a></h3>
+<ul>
+<li><strong>2 pontos:</strong> +4 na iniciativa antes de um combate e +2 nos testes de Percepção para Sentir Perigo ou para agir em uma rodada de surpresa.</li>
+</ul>
+<h3 id="resistência-a-dano-for"><a class="header" href="#resistência-a-dano-for">Resistência a Dano (FOR)</a></h3>
+<p>O personagem ganha resistência a dano, seja por um armadura corporal, pele metálica, magia, etc.</p>
+<ul>
+<li><strong>1 ponto:</strong> RD 2</li>
+<li><strong>2 pontos:</strong> RD 4</li>
+<li><strong>3 pontos</strong>: RD 6</li>
+<li><strong>4 pontos:</strong> RD 8</li>
+<li><strong>5 pontos:</strong> RD 10</li>
+</ul>
+<h3 id="resistência-à-dor-con"><a class="header" href="#resistência-à-dor-con">Resistência à Dor (CON)</a></h3>
+<ul>
+<li><strong>2 pontos:</strong> +2 de CON e +4 nos testes de resistência à dor.</li>
+</ul>
+<h3 id="sangue-curador-con"><a class="header" href="#sangue-curador-con">Sangue Curador (CON)</a></h3>
+<ul>
+<li><strong>1 ponto:</strong> Sangue regenera 4 PVs do personagem (ao invés da 2 PVs diários normais). Se o personagem doar o sangue, quem recebeu o sangue também regenera 4 PVs durante 1d6 dias.</li>
+</ul>
+<h3 id="sorte-sobrenatural-ou-super-sorte-car"><a class="header" href="#sorte-sobrenatural-ou-super-sorte-car">Sorte Sobrenatural ou Super Sorte (CAR)</a></h3>
+<ul>
+<li><strong>1 ponto</strong>: Uma vez por sessão de jogo (ou a cada 4 horas de jogo), o personagem pode rolar um <strong>teste de sorte</strong>. Um <strong>teste de sorte</strong> é um rolamento de 2d6 ao invés de rolar um teste de perícia, ataque, cena narrativa, etc. Se tirar 6 ou mais do que 6 personagem foi bem sucedido na tarefa, <strong>seja qual for a tarefa</strong>!</li>
+<li><strong>2 pontos:</strong> O personagem fazer 2 testes de sorte por sessão (ou a cada 4 horas de jogo).</li>
+<li><strong>3 pontos:</strong> O personagem fazer 3 testes de sorte por sessão (ou a cada 4 horas de jogo).</li>
+<li><strong>4 pontos:</strong> O personagem fazer 4 testes de sorte por sessão (ou a cada 4 horas de jogo).</li>
+<li><strong>5 pontos:</strong> O personagem fazer 5 testes de sorte por sessão (ou a cada 4 horas de jogo).</li>
+</ul>
+<h3 id="super-audição-sab"><a class="header" href="#super-audição-sab">Super Audição (SAB)</a></h3>
+<ul>
+<li><strong>1 ponto:</strong> Gastando 2 PEs, pode escutar tudo em até 1km de distância, concentrar em um som específico,escutar sons abaixo do limiar humano de escuta e ultrassons.</li>
+<li><strong>3 pontos:</strong> Gastando 2 PEs pode escutar tudo em até 10km de distância, concentrar em um som específico,escutar sons abaixo do limiar humano de escuta e ultrassons.</li>
+</ul>
+<h3 id="super-carisma-car"><a class="header" href="#super-carisma-car">Super Carisma (CAR)</a></h3>
+<ul>
+<li><strong>2 pontos:</strong> Capacidade de controlar as emoções de um alvo. Perícia Super Carisma (CAR) 2 (pode aumentar com gastos de pontos). Teste: CAR+Super Carisma versus INT+modificadores do alvo. Se for bem sucedido no teste, o alvo fica apaixonado ou completamente devoto ao personagem que usou Super Carisma. O alvo pode fazer um teste (INT vs. CAR+Super Carisma) para se libertar se sofrer dano físico ou depois de 10 minutos.</li>
+</ul>
+<h3 id="super-cura-pod"><a class="header" href="#super-cura-pod">Super Cura (POD)</a></h3>
+<p>A cura normal de um personagem humano é 2PVs por dia, de um sobre-humano é 4PVs por dia.</p>
+<ul>
+<li><strong>3 pontos:</strong> O personagem cura 6PVs por dia, ou 1 a cada 4 horas de repouso.</li>
+<li><strong>4 pontos:</strong> O personagem cura 8PVs por dia ou 1 a cada 3 horas de repouso.</li>
+<li><strong>5 pontos:</strong> O personagem cura 12PVs por dia ou 1 a cada 2 horas de repouso.</li>
+</ul>
+<h3 id="super-empatia-sab"><a class="header" href="#super-empatia-sab">Super Empatia (SAB)</a></h3>
+<ul>
+<li><strong>2 pontos:</strong> Personagem tem a capacidade de ler os sentimentos dos outros, como uma espécie de telepatia emocional. Para saber os sentimentos de um indivíduo consciente, basta gastar 1 PE e ser bem sucedido em um teste de SAB+Super Empatia versus INT+ (perícia de defesa mental, se tiver).</li>
+</ul>
+<h3 id="super-força-for"><a class="header" href="#super-força-for">Super Força (FOR)</a></h3>
+<ul>
+<li><strong>3 pontos:</strong> Personagem possui FOR 6.</li>
+<li><strong>4 pontos:</strong> Personagem possui FOR 8.</li>
+<li><strong>5 pontos:</strong> Personagem possui FOR 10.</li>
+</ul>
+<h3 id="super-intuição-sab"><a class="header" href="#super-intuição-sab">Super Intuição (SAB)</a></h3>
+<ul>
+<li><strong>2 pontos:</strong> O personagem jamais pode ser emboscado, tem um senso de perigo igual a um radar e ganha +10 em testes de Percepção para sentir perigos, sentir inimigos escondidos, perceber mentiras e descobrir intenções ocultas.</li>
+</ul>
+<h3 id="super-senso-do-perigo-sab"><a class="header" href="#super-senso-do-perigo-sab">Super Senso do Perigo (SAB)</a></h3>
+<ul>
+<li><strong>2 pontos:</strong> O personagem é praticamente um radar contra o perigo, percebendo sempre quando existe algo que o irá emboscar, etc. Perícia Super Senso do Perigo 2; +6 no teste versus DES+Furtividade do oponente, teste normal contra DES+Super Furtividade.</li>
+</ul>
+<h3 id="super-sentidos-sab"><a class="header" href="#super-sentidos-sab">Super Sentidos (SAB)</a></h3>
+<ul>
+<li><strong>5 pontos:</strong> Possui Super Audição a até 1KM, Super Visão telescópica (aumenta 100x a visão normal), Super Olfato (identifica cheiros impossíveis de serem sentidos por um ser humano).</li>
+</ul>
+<h3 id="super-visão-sab"><a class="header" href="#super-visão-sab">Super Visão (SAB)</a></h3>
+<ul>
+<li><strong>3 pontos:</strong> Enxerga 100x a visão normal humana.</li>
+</ul>
+<h3 id="técnica-da-mão-de-ferro-pod"><a class="header" href="#técnica-da-mão-de-ferro-pod">Técnica da Mão de Ferro (POD)</a></h3>
+<ul>
+<li><strong>2 pontos:</strong> Técnica secreta das artes marciais onde o personagem gasta 2 PEs e seu punho adquire a densidade e a resistência do aço por 3 rodadas (18 segundos), dando FOR+3 de dano ao dar um soco.</li>
+</ul>
+<h3 id="tolerância-a-álcool-con"><a class="header" href="#tolerância-a-álcool-con">Tolerância a Álcool (CON)</a></h3>
+<ul>
+<li><strong>1 ponto:</strong> Imune aos efeitos do álcool. Bode beber e nunca ficará bêbado.</li>
+</ul>
+<h3 id="transe-int"><a class="header" href="#transe-int">Transe (INT)</a></h3>
+<ul>
+<li><strong>1 ponto:</strong> Personagem consegue entrar em um transe meditativo e recuperar 6 PEs a cada 10 minutos de meditação (três vezes mais rápido do que a recuperação normal de 2 PEs para cada 10 minutos de descanso).</li>
+</ul>
+<h3 id="visão-de-360-graus-sab"><a class="header" href="#visão-de-360-graus-sab">Visão de 360 Graus (SAB)</a></h3>
+<ul>
+<li><strong>2 pontos:</strong> O personagem pode ver em um ângulo de 360º, devido a algum motivo (sobrenatural,racial,implante cibernético, magia, superpoder, etc.).</li>
+</ul>
+<h3 id="visão-noturna-sab"><a class="header" href="#visão-noturna-sab">Visão Noturna (SAB)</a></h3>
+<ul>
+<li><strong>1 ponto:</strong> Visão em ambientes com pouca ou quase nenhuma luz. É a famosa visão preto-e-branco de câmeras noturnas. Pode ser ofuscado por luminosidade normal quando estiver usando a visão noturna.</li>
+</ul>
+<h3 id="voo-pod"><a class="header" href="#voo-pod">Voo (POD)</a></h3>
+<ul>
+<li><strong>1 ponto:</strong> Gasta 1 PE e pode voar a até 10m de altura a uma velocidade de 5m/s (20km/h) por 10 minutos.</li>
+<li><strong>2 pontos:</strong> Gasta 2 PEs e pode voar a até 30m de altura a uma velocidade de 10m/s (40km/h) por 30 minutos.</li>
+<li><strong>3 pontos:</strong> Gasta 3 PEs e pode voar a até 60m de altura a uma velocidade de 20m/s (80km/h) por uma hora.</li>
+<li><strong>4 pontos:</strong> Gasta 4 PEs e pode voar a até 120m de altura a uma velocidade de 30m/s (120km/h) por três horas.</li>
+<li><strong>5 pontos:</strong> Gasta 5 PEs e pode voar a até 240m de altura a uma velocidade de 60m/s (240km/h) por dez horas.</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../content/8_npcs.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
+
+                            <a rel="next prefetch" href="../content/10_desvantagens.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../content/8_npcs.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+
+                    <a rel="next prefetch" href="../content/10_desvantagens.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr-ef4e11c1.min.js"></script>
+        <script src="../mark-09e88c2c.min.js"></script>
+        <script src="../searcher-c2a407aa.js"></script>
+
+        <script src="../clipboard-1626706a.min.js"></script>
+        <script src="../highlight-abc7f01d.js"></script>
+        <script src="../book-a0b12cfe.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

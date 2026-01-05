@@ -1,0 +1,630 @@
+<!DOCTYPE HTML>
+<html lang="pt-BR" class="rust sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Criação de Personagens - Sistema +2d6 SRD</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="../favicon-8114d1fc.png">
+        <link rel="stylesheet" href="../css/variables-8adf115d.css">
+        <link rel="stylesheet" href="../css/general-2459343d.css">
+        <link rel="stylesheet" href="../css/chrome-ae938929.css">
+        <link rel="stylesheet" href="../css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="../highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="../tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "rust";
+            const default_dark_theme = "rust";
+            window.path_to_searchindex_js = "../searchindex-006b79ba.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc-f712ca08.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('rust')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Sistema +2d6 SRD</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="criação-de-personagens"><a class="header" href="#criação-de-personagens">Criação de Personagens</a></h1>
+<p>Os personagens do +2d6 possuem ATRIBUTOS, PERÍCIAS, VANTAGENS e DESVANTAGENS. Além disso, também têm PONTOS DE VIDA (PVs) que é a energia vital do personagem e REDUÇÃO DE DANO (RD) a armadura do personagem. O personagem também tem BÔNUS DE ATRIBUTOS, pra atributos iguais ou acima de 3. Eles são anotados na área de Habilidades Especiais. Dependendo do cenário o personagem também pode ter PONTOS DE ENERGIA (PEs) gastos em habilidades sobrenaturais, mágicas ou superpoderes.</p>
+<p>Os personagens são feitos por pontos, determinados pelo Mestre e dependendo do tipo de aventura. Os pontos são distribuídos nos Atributos, Perícias e usados para comprar Vantagens. Seguem algumas sugestões:</p>
+<p><em>Aventuras Realistas ou de Horror – 10 a 15 pontos de Atributos, 10 pontos de Perícia, e Vantagens só se compram com pontos ganhos por Desvantagens no máximo de 5.</em></p>
+<p><em>Aventuras Heroicas ou de Fantasia – 20 a 25 pontos de Atributos, 15 pontos de Perícia, 5 pontos de Vantagens e pode-se ter mais 5 pontos por Desvantagens.</em></p>
+<h2 id="atributos"><a class="header" href="#atributos">Atributos</a></h2>
+<p>São as características básicas do personagem. O +2d6 usa de 6 atributos básicos e um sétimo, o atributo PODER (POD) para aventuras que envolvem poderes sobrenaturais.</p>
+<p>Os valores dos atributos variam de 1 a 5 para humanos normais (abaixo de 1 são crianças e velhos), 6 a 10 para valores sobre-humanos e acima de 10 para valores épicos ou divinos. Os atributos podem ter valores negativos, indicando deficiências. <strong>O que os valores significam podem e devem ser customizados pelas aventuras.</strong> Seguem algumas sugestões.</p>
+<p><strong>O Mestre deve determinar os valores máximos dos atributos em suas campanhas.</strong></p>
+<h3 id="bônus-especial-dos-níveis-sobre-humanos"><a class="header" href="#bônus-especial-dos-níveis-sobre-humanos">Bônus Especial dos Níveis Sobre-humanos</a></h3>
+<p>Testes de atributos de nível sobre-humano, valores de 6 a 10, <strong>têm +6 de bônus</strong> se testados contra atributos de nível humano. Atributos de nível divino (acima de 10) <strong>têm +6 de bônus</strong> se testados contra atributos de nível sobre-humano <strong>e +12 de bônus</strong> se testados contra atributos de nível humano.</p>
+<h3 id="força-for"><a class="header" href="#força-for">Força (FOR)</a></h3>
+<p>A força física do personagem. O Atributo Força é utilizado em todos os testes que envolvem o poder físico básico do personagem, regulando a capacidade de carga do personagem, alterando o dano causado por armas de mão. Esse atributo é prevalente em personagens com foco na ação e na força física, como guerreiros, artistas marciais, soldados, gladiadores, etc. Usa-se Força em testes de escalar, natação, luta corpo-a-corpo que envolve força, arrombar portas, etc.</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th style="text-align: center">FOR</th><th>Capacidade</th><th style="text-align: center">Dano</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align: center">1</td><td>Levanta uma cadeira</td><td style="text-align: center">1d6-4</td></tr>
+<tr><td style="text-align: center">2</td><td>uma mesa</td><td style="text-align: center">1d6-2</td></tr>
+<tr><td style="text-align: center">3</td><td>100 quilos</td><td style="text-align: center">1d6</td></tr>
+<tr><td style="text-align: center">4</td><td>200 quilos</td><td style="text-align: center">1d6+1</td></tr>
+<tr><td style="text-align: center">5</td><td>400 quilos</td><td style="text-align: center">1d6+2</td></tr>
+<tr><td style="text-align: center">6</td><td>um carro</td><td style="text-align: center">3d6</td></tr>
+<tr><td style="text-align: center">7</td><td>um caminhão</td><td style="text-align: center">4d6</td></tr>
+<tr><td style="text-align: center">8</td><td>um avião</td><td style="text-align: center">5d6</td></tr>
+<tr><td style="text-align: center">9</td><td>navio transatlântico</td><td style="text-align: center">6d6</td></tr>
+<tr><td style="text-align: center">10</td><td>uma cidade</td><td style="text-align: center">7d6</td></tr>
+</tbody>
+</table>
+</div>
+<h4 id="exemplos-de-situações-para-testes-de-força"><a class="header" href="#exemplos-de-situações-para-testes-de-força">Exemplos de Situações para Testes de FORÇA:</a></h4>
+<ul>
+<li>Luta Livre. <em>Ex: 2d6+FOR+Luta Livre do atacante vs. 2d6+FOR+Luta Livre do defensor.</em></li>
+<li>Levantar objetos pesados. <em>Ex.: 2d6+FOR vs. Dificuldade.</em></li>
+<li>Queda de Braço. <em>Ex. 2d6+FOR vs. 2d6+FOR do oponente.</em></li>
+</ul>
+<h3 id="destreza-des"><a class="header" href="#destreza-des">Destreza (DES)</a></h3>
+<p>A velocidade, agilidade e perícia manual de um personagem. Mede a coordenação entre olhos e mãos, reflexos, equilíbrio e velocidade. Esse atributo controla a capacidade de acertar alvos à distância, os ataques com armas de mão que envolvem destreza, a perícia manual, e a velocidade de movimentação do personagem. Em combate, os testes de ataque corpo-a-corpo podem ser feitos tanto com DES quanto com FOR, dependendo do contexto e do tipo de arma e estilo de luta utilizado.</p>
+<h4 id="bônus-de-iniciativa-para-destreza-acima-de-3"><a class="header" href="#bônus-de-iniciativa-para-destreza-acima-de-3">Bônus de Iniciativa para Destreza acima de 3</a></h4>
+<p>Destreza também dá um bônus nos testes de iniciativa (DES acima de 3) na primeira rodada do combate (usado para determinar a ordem das ações).</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th style="text-align: center">DES</th><th>Capacidade</th><th style="text-align: center">Bônus de Iniciativa</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align: center">1</td><td>Sedentário</td><td style="text-align: center">-</td></tr>
+<tr><td style="text-align: center">2</td><td>Faz exercícios regularmente</td><td style="text-align: center">-</td></tr>
+<tr><td style="text-align: center">3</td><td>Atleta Amador</td><td style="text-align: center">+1</td></tr>
+<tr><td style="text-align: center">4</td><td>Atleta profissional</td><td style="text-align: center">+2</td></tr>
+<tr><td style="text-align: center">5</td><td>Campeão Olímpico</td><td style="text-align: center">+3</td></tr>
+<tr><td style="text-align: center">6</td><td>Rápido como um carro</td><td style="text-align: center">+6</td></tr>
+<tr><td style="text-align: center">7</td><td>… carro esportivo</td><td style="text-align: center">+8</td></tr>
+<tr><td style="text-align: center">8</td><td>… carro de corrida</td><td style="text-align: center">+10</td></tr>
+<tr><td style="text-align: center">9</td><td>… avião</td><td style="text-align: center">+12</td></tr>
+<tr><td style="text-align: center">10</td><td>… avião supersônico</td><td style="text-align: center">+14</td></tr>
+</tbody>
+</table>
+</div>
+<h4 id="exemplos-de-situações-para-testes-de-destreza"><a class="header" href="#exemplos-de-situações-para-testes-de-destreza">Exemplos de Situações para Testes de DESTREZA:</a></h4>
+<ul>
+<li>Ataque com Armas Brancas. <em>Ex: 2d6+DES+Armas Brancas vs. 2d6+DES+Defesa do defensor. Ou 2d6+DES+Armas Brancas do defensor, se ele se defender com uma arma branca.</em></li>
+<li>Ataque com Arco e Flecha. <em>Ex.: 2d6+DES+Arco e Flecha vs. CD (Classe de Desafio determinada pelo Mestre) ou vs. 2d6+DES do defensor (com modificadores negativos), se o defensor puder reagir.</em></li>
+<li>Atirar com Pistola. <em>Ex. 2d6+DES+Armas de Fogo (mais modificadores de precisão da arma utilizada) vs. 2d6+DES do alvo (com modificadores negativos altos) se o alvo puder reagir ou vs. CD determinada pelo Mestre.</em></li>
+<li>Abrir Fechaduras. <em>Ex. 2d6+DES+Ladinagem vs. CD determinada pelo Mestre.</em></li>
+</ul>
+<h3 id="constituição-con"><a class="header" href="#constituição-con">Constituição (CON)</a></h3>
+<p>A resistência física de um personagem, seu fôlego, sua capacidade de resistir a doenças e venenos. Também controla os PVs (Pontos de Vida) de um personagem. Normalmente, os PVs iniciais são iguais a 10+CON+FOR, mas isso pode variar de acordo com o estilo de aventura (aventuras com mais ação podem ser 20+CON+FOR, e aventuras mais realistas podem ser 10+CON+FOR). CONSTITUIÇÃO controla a energia física do personagem e é utilizado em testes de cansaço, esforço físico prolongado e para resistir a venenos ou doenças. Em cenários com magia, a CON também pode ser usada como base para calcular a energia mágica (ou Mana) do personagem.  Personagens com CON igual ou acima de 3 ganham PVs iniciais extras.</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th style="text-align: center">CON</th><th>Capacidade</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align: center">1</td><td>Franzino, cansa rapidamente.</td></tr>
+<tr><td style="text-align: center">2</td><td>Corpo normal, sedentário, cansa com esforço físico moderado.</td></tr>
+<tr><td style="text-align: center">3</td><td>Corpo de Atleta Amador. +5 PVs extras, cansa após esforço físico forte.</td></tr>
+<tr><td style="text-align: center">4</td><td>Corpo de Atleta Profissional. +10 PVs extras, cansa apenas depois de esforço físico pesado.</td></tr>
+<tr><td style="text-align: center">5</td><td>Corpo de Atleta Campeão Olímpico. +15 PVs extras, cansa apenas depois de esforço físico pesadíssimo.</td></tr>
+<tr><td style="text-align: center">6</td><td>Corpo Sobrenatural resiste a tiros, incansável, +20 PVs Extras.</td></tr>
+<tr><td style="text-align: center">7</td><td>Recupera rapidamente de cortes profundos, não desmaia nunca, fica semanas sem comer, +30 PVs extras.</td></tr>
+<tr><td style="text-align: center">8</td><td>Resiste a golpes mortais, recupera de tiros no coração, difícil de morrer, +40 PVs extras.</td></tr>
+<tr><td style="text-align: center">9</td><td>Quase invulnerável, não sente queimaduras, quase não sente dor nenhuma; +50 PVs extras.</td></tr>
+<tr><td style="text-align: center">10</td><td>Invulnerável, não cansa nunca, não precisa dormir nunca, quase não precisa de nutrição. +60 PVs extras.</td></tr>
+</tbody>
+</table>
+</div>
+<h4 id="exemplos-de-situações-de-testes-de-constituição"><a class="header" href="#exemplos-de-situações-de-testes-de-constituição">Exemplos de Situações de Testes de CONSTITUIÇÃO:</a></h4>
+<ul>
+<li>Cansaço Físico. <em>Ex: 2d6+CON vs. uma CD determinada pelo Mestre para ver se o personagem está cansado.</em></li>
+<li>Veneno. <em>Ex: 2d6+CON vs. 2d6+Força do Veneno ou uma CD determinada pelo Mestre para ver se o personagem está envenenado.</em></li>
+</ul>
+<h3 id="inteligência-int"><a class="header" href="#inteligência-int">Inteligência (INT)</a></h3>
+<p>A inteligência é a capacidade de raciocínio lógico, a capacidade de aprendizado e a memória de um personagem. O atributo Inteligência é usado em todos os testes que envolvem o conhecimento intelectual acumulado pelo personagem. Testes que envolvem conhecimentos gerais e acadêmicos, solução de enigmas, decifração de códigos, estratégias militares, aprendizado e conhecimento de novos idiomas, capacidade de aprender novas magias ou novos conhecimentos, pesquisas acadêmicas, uso de computadores, etc. Também pode ser usado para invocar magias.</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th style="text-align: center">INT</th><th>Capacidade</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align: center">1</td><td>Inteligência normal.</td></tr>
+<tr><td style="text-align: center">2</td><td>Inteligência acima da média.</td></tr>
+<tr><td style="text-align: center">3</td><td>Inteligência bem acima da média.</td></tr>
+<tr><td style="text-align: center">4</td><td>Gênio, QI alto.</td></tr>
+<tr><td style="text-align: center">5</td><td>Super-Gênio, QI muito alto.</td></tr>
+<tr><td style="text-align: center">6</td><td>Inteligência Sobrenatural, Memória Fotográfica.</td></tr>
+<tr><td style="text-align: center">7</td><td>Super Inteligência</td></tr>
+<tr><td style="text-align: center">8</td><td>Computador Humano.</td></tr>
+<tr><td style="text-align: center">9</td><td>Super Computador Humano</td></tr>
+<tr><td style="text-align: center">10</td><td>Mega Computador Humano</td></tr>
+</tbody>
+</table>
+</div>
+<h4 id="exemplos-de-situações-de-testes-de-inteligência"><a class="header" href="#exemplos-de-situações-de-testes-de-inteligência">Exemplos de Situações de Testes de INTELIGÊNCIA:</a></h4>
+<ul>
+<li>Hackear Computadores. <em>Ex: 2d6+INT+Computação vs. uma CD determinada pelo Mestre.</em></li>
+<li>Pesquisa em Biblioteca. <em>Ex: 2d6+INT+Investigação vs. uma CD determinada pelo Mestre</em></li>
+<li>Duelo entre dois Hackers (um tentando invadir o computador do outro). <em>Ex: 2d6+INT+Computação vs. 2d6+INT+Computação do oponente.</em></li>
+</ul>
+<h3 id="sabedoria-sab"><a class="header" href="#sabedoria-sab">Sabedoria (SAB)</a></h3>
+<p>A percepção, intuição, sensibilidade e conhecimento intuitivo de um personagem. Também representa a força de vontade. Usada em testes que envolvem ouvir, perceber, ver, intuir perigo, perceber motivação, visualizar um alvo, perceber energias místicas ou presenças sobrenaturais. Também se usa Sabedoria em combates para ver se alguém está surpreso (nesse caso, quem não passar em um teste de Sabedoria (2d6+SAB vs. CD determinada pelo Mestre ou vs. 2d6+SAB+Furtividade de quem está criando a emboscada) ficará sem ação na rodada. Pode ser usado em conjunto com a perícia Vontade (ver lista de perícias) para aqueles com a força de vontade treinada para resistir medo, estresse, poderes mentais e hipnóticos.</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th style="text-align: center">SAB</th><th>Capacidade</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align: center">1</td><td>Percepção, força de vontade e intuição normais.</td></tr>
+<tr><td style="text-align: center">2</td><td>Percepção, força de vontade e intuição acima da média.</td></tr>
+<tr><td style="text-align: center">3</td><td>Percepção, força de vontade e intuição bem acima da média. +1 de bônus em testes de força de vontade e percepção.</td></tr>
+<tr><td style="text-align: center">4</td><td>Percepção, força de vontade e Intuição altíssimas. +2 de bônus em testes de força de vontade e percepção.</td></tr>
+<tr><td style="text-align: center">5</td><td>Percepção e Intuição de um ninja. +3 de bônus em testes de força de vontade e percepção.</td></tr>
+<tr><td style="text-align: center">6</td><td>Percepção, força de vontade e Intuição sobrenaturais. +6 de bônus em testes de força de vontade e percepção.</td></tr>
+<tr><td style="text-align: center">7</td><td>Super Percepção, força de vontade e Intuição, atinge áreas do tamanho de um bairro. +8 de bônus em testes de força de vontade e percepção.</td></tr>
+<tr><td style="text-align: center">8</td><td>Super Percepção, força de vontade e Intuição envolvem cidades. +10 de bônus em testes de força de vontade e percepção.</td></tr>
+<tr><td style="text-align: center">9</td><td>Super Percepção, força de vontade e Intuição envolvem estados. +12 de bônus em testes de força de vontade e percepção.</td></tr>
+<tr><td style="text-align: center">10</td><td>Super Percepção e Intuição envolvem países. +14 de bônus em testes de força de vontade e percepção.</td></tr>
+</tbody>
+</table>
+</div>
+<h4 id="exemplos-de-situações-de-testes-de-sabedoria"><a class="header" href="#exemplos-de-situações-de-testes-de-sabedoria">Exemplos de Situações de Testes de SABEDORIA:</a></h4>
+<ul>
+<li>Sentir Perigo. <em>Ex: 2d6+SAB vs. uma CD determinada pelo Mestre.</em></li>
+<li>Sentir Motivação, ou Perceber Mentiras. <em>Ex: 2d6+SAB vs. 2d6+INT do alvo.</em></li>
+<li>Atacar um alvo muito distante. <em>Ex. Um teste bem sucedido de 2d6+SAB vs.CD determinada pelo mestre antes de fazer o ataque com a arma à distância (2d6+DES+Perícia da Arma vs. CD determinada pelo Mestre).</em></li>
+<li>Resistir ao Medo: <em>Ex: 2d6+SAB+perícia Vontade vs. CD determinada pelo Mestre.</em></li>
+</ul>
+<h3 id="carisma-car"><a class="header" href="#carisma-car">Carisma (CAR)</a></h3>
+<p>O carisma social de um personagem, capacidade de influenciar pessoas, convencer, seduzir, etc. CAR é usado em testes que envolvem interação social, disputas de discursos, demonstrações artísticas, etc.</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th style="text-align: center">CAR</th><th>Capacidade</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align: center">1</td><td>Carisma normal, não chama atenção.</td></tr>
+<tr><td style="text-align: center">2</td><td>Simpático, chama um pouco a atenção, carisma um pouco acima da média.</td></tr>
+<tr><td style="text-align: center">3</td><td>Carisma bem acima da média, chama a atenção, dá +1 em testes de sedução, diplomacia e manipulação.</td></tr>
+<tr><td style="text-align: center">4</td><td>Sedutor, líder, carismático, afeta um grupo de pessoas considerável. +2 em testes de sedução, diplomacia e manipulação.</td></tr>
+<tr><td style="text-align: center">5</td><td>Muito sedutor, muito carismático, afeta um grupo grande de pessoas, político de liderar multidões. +3 em testes de sedução, diplomacia e manipulação.</td></tr>
+<tr><td style="text-align: center">6</td><td>Carisma sobrenatural, hipnotiza só com o olhar. +6 em testes de sedução, diplomacia e manipulação.</td></tr>
+<tr><td style="text-align: center">7</td><td>Super Carisma, hipnotiza grandes grupos de pessoas. +8 em testes de sedução, diplomacia e manipulação.</td></tr>
+<tr><td style="text-align: center">8</td><td>Super Carisma afetando centenas de pessoas ao mesmo tempo, manipulação total. +10 em testes de sedução, diplomacia e manipulação.</td></tr>
+<tr><td style="text-align: center">9</td><td>Super Carisma afetando milhares de pessoas ao mesmo tempo, manipulação total. +12 em testes de sedução, diplomacia e manipulação.</td></tr>
+<tr><td style="text-align: center">10</td><td>Super Carisma afetando milhões de pessoas ao mesmo tempo, manipulação total. +14 em testes de sedução, diplomacia e manipulação.</td></tr>
+</tbody>
+</table>
+</div>
+<h4 id="exemplos-de-situações-de-testes-de-carisma"><a class="header" href="#exemplos-de-situações-de-testes-de-carisma">Exemplos de Situações de Testes de CARISMA:</a></h4>
+<ul>
+<li>Seduzir. <em>Ex: 2d6+CAR vs. 2d6+INT do alvo.</em></li>
+<li>Diplomacia. <em>Ex: 2d6+CAR vs. 2d6+INT do alvo ou vs. CD determinada pelo Mestre.</em></li>
+<li>Convencimento: <em>Ex: 2d6+CAR vs. 2d6+INT do alvo ou vs. CD determinada pelo Mestre.</em></li>
+</ul>
+<h3 id="poder-pod"><a class="header" href="#poder-pod">Poder (POD)</a></h3>
+<p>O poder sobrenatural de um personagem, o nível que pode afetar a realidade com o seu poder. Apenas personagens com poderes mágicos, sobrenaturais, cibernéticos, etc. possuem o atributo Poder.</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th style="text-align: center">POD</th><th>Capacidade</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align: center">1</td><td>Poder pequeno, de pouco efeito.</td></tr>
+<tr><td style="text-align: center">2</td><td>Poder de efeito normal, limitado.</td></tr>
+<tr><td style="text-align: center">3</td><td>Poder de efeito grande, afeta mais de um alvo, super-herói mediano.</td></tr>
+<tr><td style="text-align: center">4</td><td>Poder de efeito considerável, super-herói local acima da média.</td></tr>
+<tr><td style="text-align: center">5</td><td>Poder de efeito enorme, super-herói local de elite.</td></tr>
+<tr><td style="text-align: center">6</td><td>Super-herói de nível nacional.</td></tr>
+<tr><td style="text-align: center">7</td><td>Super-herói de nível global.</td></tr>
+<tr><td style="text-align: center">8</td><td>Super-herói de nível global e de elite.</td></tr>
+<tr><td style="text-align: center">9</td><td>Super-herói de nível cósmico.</td></tr>
+<tr><td style="text-align: center">10</td><td>Super-herói de nível cósmico e de elite.</td></tr>
+</tbody>
+</table>
+</div>
+<h4 id="exemplos-de-situações-de-testes-de-poder"><a class="header" href="#exemplos-de-situações-de-testes-de-poder">Exemplos de Situações de Testes de PODER:</a></h4>
+<ul>
+<li>Controlar Mentes. <em>Ex: 2d6+POD+Perícia Controlar Mentes vs. 2d6+POD do alvo.</em></li>
+<li>Raio de Fogo. <em>Ex: 2d6+POD+Perícia Raio de Fogo vs. 2d6+DES do alvo ou vs. CD determinada pelo Mestre.</em></li>
+</ul>
+<h2 id="perícias"><a class="header" href="#perícias">Perícias</a></h2>
+<p>São determinadas pelo tipo de aventura. Em média, um personagem possui cerca de 5 a 10 perícias. As perícias têm valores de 1 a 5 e representam tanto as especialidades quanto os poderes especiais dos personagens. As perícias podem ser genéricas ou específicas, determinadas pelo Mestre do Jogo ou escolhidas/criadas pelos jogadores.</p>
+<p><em>Exemplo de perícias: Investigação, Engenharia, Ocultismo, Medicina, etc.</em></p>
+<p><strong>Valores das perícias:</strong> (1) Iniciante, (2) Profissional, (3) Experiente, (4) Perito, (5) Expert.</p>
+<h3 id="lista-de-perícias"><a class="header" href="#lista-de-perícias">Lista de Perícias</a></h3>
+<p>As perícias listadas abaixo são apenas sugestões para os mestres. Cada mestre deve criar uma lista específica para o tipo de aventura que está criando. A sugestão é criar uma lista de 15 a 20 perícias e distribuir entre os personagens dos jogadores, criando a aventura em cima das perícias escolhidas. Ao lado do nome da perícia está o Atributo Básico ao qual ela deve ser somada em um teste normal ou oposto.</p>
+<p>Poderes sobrenaturais (que são perícias também) sempre envolvem o atributo Poder, e estão descritos na parte de Vantagens.</p>
+<h4 id="perícias-físicas-des-for-ou-con"><a class="header" href="#perícias-físicas-des-for-ou-con">Perícias Físicas (DES, FOR ou CON)</a></h4>
+<p><strong>Acrobacia</strong> (DES): habilidade de dar saltos mortais, estrelas, saltos acrobáticos, etc. Pode ser usada como defesa em combate.</p>
+<p><strong>Armas Brancas</strong> (DES ou FOR): perícia genérica que envolve todos os tipos de armas brancas. Dependendo do tipo de aventura, pode-se criar uma perícia específica para cada tipo de arma branca (Espadas, Machados, Adagas, Chicotes, etc.).</p>
+<p><strong>Armas de Energia</strong> (DES): perícia genérica que envolve todos os tipos de armas de energia (comuns em cenários e aventuras futuristas). Dependendo do tipo de aventura, pode-se criar uma perícia específica para cada tipo de arma de energia (Rifles Laser, Pistolas Laser, Sabres de Luz, etc.).</p>
+<p><strong>Armas de Fogo</strong> (DES): perícia genérica que envolve todos os tipos de armas de fogo. Dependendo do tipo de aventura, pode-se criar uma perícia específica para cada tipo de arma de fogo (Rifles, Pistolas, Armas Automáticas, Bazuca, etc.).</p>
+<p><strong>Arte da Fuga</strong> (DES): habilidade para escapar de amarras, correntes ou algemas, rastejar por espaços apertados, etc.</p>
+<p><strong>Atletismo</strong> (DES ou FOR): perícia genérica que abarca todos os tipos de atividade física de grande esforço, correr, nadar, arremessar peso, saltar, etc.</p>
+<p><strong>Artes Marciais</strong> (DES): perícia genérica que envolve todos os tipos de artes marciais. Dependendo do tipo de aventura, pode-se criar uma perícia específica para cada tipo de arte marcial (Judô, Karatê, Jiu-jitsu, etc.).</p>
+<p><strong>Arremessar</strong> (DES): habilidade de lançar objetos como lanças, maças, machados, etc.</p>
+<p><strong>Bater Carteiras/Punga</strong> (DES): habilidade para roubar sem ser percebido, requer grande destreza com as mãos.</p>
+<p><strong>Briga</strong> (FOR ou DES): luta de rua, sem técnica e brutal.</p>
+<p><strong>Dirigir</strong> (DES): perícia genérica, condução de veículos automotores.</p>
+<p><strong>Cavalgar</strong> (DES): andar a cavalo ou outro tipo de animal.</p>
+<p><strong>Controle da Respiração</strong> (CON): habilidade de prender ou controlar a respiração, emoções, reduzir o dano de choques psíquicos ou perda de sanidade.</p>
+<p><strong>Correr</strong> (DES): treinamento específico de corrida, perde menos PE (pontos de energia e corre mais rápido).</p>
+<p><strong>Equilíbrio</strong> (DES): ser capaz de se equilibrar em superfícies estreitas, andar em cabo de aço, etc.</p>
+<p><strong>Escalar</strong> (FOR ou DES): subir superfícies íngremes à uma velocidade igual ao Deslocamento/4.</p>
+<p><strong>Esconder-se</strong> (DES ou INT): técnica de camuflar, esconder da vista do oponente, se ocultar nas sombras, passar despercebido.</p>
+<p><strong>Estrangular</strong> (FOR): técnica de usar a força para matar alguém.</p>
+<p><strong>Ferreiro</strong> (DES): habilidade de criar e reparar armas, escudos e armaduras de metal.</p>
+<p><strong>Fugir</strong> (DES): habilidade de saber escapar correndo de um perigo.</p>
+<p><strong>Furtividade</strong> (DES): aproximar-se sem ser notado por um inimigo, perseguir sem ser visto, andar silenciosamente.</p>
+<p><strong>Levantamento de Peso</strong> (FOR): treinamento específico de atleta para levantar pesos.</p>
+<p><strong>Luta Livre</strong> (FOR ou DES): arte marcial baseada em agarrões e submissões do oponente.</p>
+<p><strong>Natação</strong> (FOR ou DES): saber nadar.</p>
+<p><strong>Pilotar</strong> (DES): perícia genérica, habilidade de pilotar veículos aéreos e aquáticos, pode-se criar perícias específicas para cada tipo de veículo (submarino, navio, lancha, avião comercial, etc.).</p>
+<p><strong>Saltar</strong> (FOR ou DES): técnica para dar saltos mesmo em condições adversas.</p>
+<p><strong>Skate</strong> (DES): habilidade de se locomover usando o skate, capacidade de realizar proezas no skate.</p>
+<p><strong>Tolerância</strong> (CON): capacidade de resistir à dor, fadiga, fome e sede.</p>
+<p><strong>Resistência a Venenos</strong> (CON): habilidade de resistir os efeitos de venenos.</p>
+<h4 id="perícias-mentais-int-ou-sab"><a class="header" href="#perícias-mentais-int-ou-sab">Perícias Mentais (INT OU SAB)</a></h4>
+<p><strong>Administração</strong> (INT): conhecimento de gerência, liderança, hierarquia corporativa, etc.</p>
+<p><strong>Alquimia</strong> (INT): conhecimento alquímico, preparo de poções mágicas, talismãs, etc.</p>
+<p><strong>Antropologia</strong> (INT): estudo do homem e da cultura humana, estudo de culturas primitivas e contemporâneas.</p>
+<p><strong>Arrombamento</strong> (INT): saber abrir fechaduras, abrir portas, cofres, etc.</p>
+<p><strong>Artilharia</strong> (INT): conhecimento de artilharia militar, artilharia antiaérea, etc.</p>
+<p><strong>Biologia</strong> (INT): conhecimento acadêmico sobre os seres vivos.</p>
+<p><strong>Camuflagem</strong> (INT): saber como se camuflar, esconder, criar disfarces, etc.</p>
+<p><strong>Cartografia</strong> (INT): habilidade de criar mapas, de mapear locais desconhecidos, etc.</p>
+<p><strong>Ciência Forense</strong> (INT): conhecimento técnico e acadêmico sobre causas dos crimes, causas de mortes, autópsias, etc.</p>
+<p><strong>Ciências Proibidas/Ciências Ocultas</strong> (INT): ocultismo, arcanismo e outras ciências não oficiais, que envolvem temas tabus e proibidos como magia, demonologia, estudo dos espíritos, etc.</p>
+<p><strong>Comércio</strong> (INT): perícia genérica que envolve barganha, negociação, reconhecer o melhor preço, etc.</p>
+<p><strong>Computação</strong> (INT): conhecimento acadêmico ou técnico sobre computadores, análise de sistemas, programação, reparo.</p>
+<p><strong>Conhecimento</strong> (INT): perícia genérica, pode ser usada junto com alguma área de conhecimento, para RPGs que não sejam muito investigativos, como Conhecimento Ciências Humanas, Técnico, Eletrônico, etc.</p>
+<p><strong>Coletar Evidência</strong> (INT ou SAB): técnica de buscar pistas em cenas de crimes.</p>
+<p><strong>Contabilidade</strong> (INT): conhecimento de balanço de pagamentos, finanças de empresas, imposto de renda, etc.</p>
+<p><strong>Criptografia</strong> (INT): conhecimento de como quebrar ou criar códigos secretos.</p>
+<p><strong>Criminologia</strong> (INT): estudo acadêmico sobre crimes, saber criar um perfil de um assassino, entender as motivações de um crime, etc.</p>
+<p><strong>Cultura Popular</strong> (INT): conhecimento dos rumores, boatos, acontecimentos do mundo do entretenimento, cultura de massa, novelas, celebridades, etc.</p>
+<p><strong>Direito</strong> (INT): conhecimento da legislação, conhecimento dos procedimentos legais, de como se defender e atacar em um tribunal, reconhecer ilegalidades.</p>
+<p><strong>Disfarces</strong> (INT ou CAR): habilidade de criar disfarces, de se fazer passar por outra pessoa.</p>
+<p><strong>Economia</strong> (INT): conhecimentos de economia, finanças nacionais, problemas econômicos.</p>
+<p><strong>Eletrônica</strong> (INT): conhecimento de sistemas eletrônicos, criação, projeto, hacking, etc.</p>
+<p><strong>Ensino</strong> (INT): conhecimento de didática, habilidade de dar aulas, de passar informações.</p>
+<p><strong>Espionagem</strong> (INT): perícia genérica, conjunto de habilidades relacionadas com espiões, como instalação de câmeras secretas, perseguir sem ser visto, desarmar esquemas de segurança, etc.</p>
+<p><strong>Escrever</strong> (INT): habilidade de escrever profissionalmente.</p>
+<p><strong>Estratégia Militar</strong> (INT): conhecimento de táticas militares, capaz de reconhecer táticas militares do inimigo, descobrir pontos fracos, estabelecer táticas de combate eficazes.</p>
+<p><strong>Explosivos</strong> (INT): armar e desarmar explosivos, criar bombas, etc.</p>
+<p><strong>Exorcismo</strong> (INT ou CAR): sabe realizar rituais de exorcismo, conhece a ritualística, etc.</p>
+<p><strong>Farmácia</strong> (INT): conhecimento sobre remédios, drogas, medicamentos.</p>
+<p><strong>Falsificação</strong> (INT): habilidade de falsificar documentos, objetos de arte, dinheiro, etc.</p>
+<p><strong>Finanças</strong> (INT): perícia genérica que envolve economia, contabilidade, e áreas que envolvem dinheiro como investimentos, taxas, etc.</p>
+<p><strong>Fotografia</strong> (INT): habilidade técnica de bater fotos de nível profissional, analisar fotos, ampliar e trabalhar com imagens.</p>
+<p><strong>Geologia</strong> (INT): estudo do solo, eras geológicas, etc.</p>
+<p><strong>Hacking</strong> (INT): habilidade para invadir sistemas, criar vírus de computador, tomar controle de redes de telecomunicações, etc.</p>
+<p><strong>Hipnose</strong> (INT): habilidade para afetar a mente de uma pessoa e torná-la mais fácil de ser manipulada.</p>
+<p><strong>História</strong> (INT): estudo da história da humanidade, conhecimento de fatos históricos locais ou globais.</p>
+<p><strong>Investigação</strong> (INT ou SAB): perícia genérica, habilidade técnica de reunir pistas, reunir evidências, deduzir, etc.</p>
+<p><strong>Literatura</strong> (INT): conhecimento acadêmico de obras literárias, capacidade de interpretação profissional de obras de arte, conhecimento de história da literatura.</p>
+<p><strong>Matemática</strong> (INT): estudo da ciência da matemática.</p>
+<p><strong>Mecânica</strong> (INT): habilidade de criar e reparar equipamentos mecânicos, consertar veículos.</p>
+<p><strong>Medicina</strong> (INT): conhecimento das artes médicas, realizar operações, tratar ferimentos, etc.</p>
+<p><strong>Mitos de Cthulhu</strong> (INT): conhecimento dos inomináveis horrores cósmicos.</p>
+<p><strong>Naturalista</strong> (INT): conhecimento acadêmico sobre a vida selvagem.</p>
+<p><strong>Navegação</strong> (INT): sabe como conduzir uma embarcação, como se orientar em alto mar, etc.</p>
+<p><strong>Ofícios</strong> (INT): perícia genérica para representar algum tipo de habilidade técnica como artesanato, escultura, ferraria, criação de animais, agricultura, joalheria, etc.</p>
+<p><strong>Operar Submarino/Navio/Nave Espacial</strong> (INT): perícias específicas sobre como cuidar, operar, pilotar, o veículo indicado.</p>
+<p><strong>Operar Power-Armor</strong> (INT): perícias específicas sobre como cuidar, operar, pilotar uma Power-Armor.</p>
+<p><strong>Paleontologia</strong> (INT): estudo das formas de vida existentes no período pré-histórico.</p>
+<p><strong>Procurar</strong> (SAB): habilidade de vasculhar com atenção, notar pequenas diferenças, muito útil para investigadores.</p>
+<p><strong>Primeiros Socorros</strong> (INT ou SAB): treinamento técnico de como proceder para estancar ferimentos, fazer os primeiros cuidados com os feridos, criar talas de emergência, etc.</p>
+<p><strong>Psicologia</strong> (INT): conhecimento acadêmico de psicologia, e saber realizar terapias, hipnotizar, analisar e entender as motivações ocultas das ações dos indivíduos.</p>
+<p><strong>Psiquiatria</strong> (INT): conhecimento acadêmico e técnico de psiquiatria, das doenças, problemas cerebrais, medicamentos, etc.</p>
+<p><strong>Química</strong> (INT): conhecimento de reações químicas, produção de elementos químicos, etc.</p>
+<p><strong>Rastreio</strong> (INT): saber rastrear, seguir rastros, perseguir uma presa ou pessoa.</p>
+<p><strong>Religião</strong> (INT ou SAB): conhecimento teológico, de história das religiões, da ritualística, etc.</p>
+<p><strong>Rituais Ocultistas</strong> (INT ou POD): conhecimento de como realizar rituais mágicos.</p>
+<p><strong>Rituais Religiosos</strong> (INT): conhecimento de como realizar rituais religiosos.</p>
+<p><strong>Senso de Direção</strong> (SAB): habilidade para distinguir as direções através do instinto.</p>
+<p><strong>Sobrevivência</strong> (INT): habilidade de sobreviver em lugares selvagens, encontrar abrigo, caçar, conseguir alimento, reconhecer plantas venenosas.</p>
+<p><strong>Sobrevivência Urbana</strong> (INT): capacidade de sobreviver em ambiente urbano, saber fontes de comida gratuita, andar pelo submundo, conseguir abrigo, conhecer os perigos da vida urbana dos sem-casa.</p>
+<p><strong>Sociologia</strong> (INT): estudo das sociedades, de sua organização, estrutura, grupos sociais, ideologias, etc.</p>
+<p><strong>Venenos</strong> (INT): saber criar, usar, identificar e neutralizar venenos.</p>
+<p><strong>Veterinária</strong> (INT): tratar ferimentos e doenças de animais, conhecimento de biologia animal.</p>
+<p><strong>Vontade</strong> (SAB): o personagem tem a Força de Vontade treinada, capaz de resistir ao medo, à hipnose, poderes mentais, etc.</p>
+<h4 id="perícias-sociais-car"><a class="header" href="#perícias-sociais-car">Perícias Sociais (CAR)</a></h4>
+<p><strong>Artista</strong> (CAR): atuação em teatro, cinema, filmes, capacidade de atuar, pode ser para atores, dançarinos, artistas de circo, etc.</p>
+<p><strong>Convencimento</strong> (CAR): convencer, mudar a opinião de outra pessoa.</p>
+<p><strong>Contatos</strong> (CAR): aliados, amigos e informantes que o personagem pode acessar durante uma aventura, o mestre pede o teste de contatos com modificadores dependendo da familiaridade do personagem com o local onde busca contatos.</p>
+<p><strong>Debate</strong> (CAR): habilidade de debater e vencer debates, duelos verbais.</p>
+<p><strong>Diplomacia</strong> (CAR): realizar acordos, convencer pessoas, oferecer propostas e ter reações positivas.</p>
+<p><strong>Empatia</strong> (CAR): habilidade de sentir e perceber o que os outros estão sentindo.</p>
+<p><strong>Lidar com Animais</strong> (CAR): habilidade de domar, acalmar e lidar com animais.</p>
+<p><strong>Manipulação</strong> (CAR): enganar, manipular, mentir de maneira convincente.</p>
+<p><strong>Manha</strong> (INT ou CAR): Conhecimento das ruas, saber criar contatos, conseguir informações, conhecer o submundo, saber das gírias, dos grupos criminosos, etc.</p>
+<p><strong>Mentir</strong> (CAR): habilidade de mentir de maneira convincente.</p>
+<p><strong>Intimidação</strong> (CAR): habilidade para intimidar outras pessoas, causar medo e forçar sua autoridade nos outros.</p>
+<p><strong>Falar em Público</strong> (CAR): habilidade de lidar com uma plateia e impressionar com suas palavras, sem sentir timidez.</p>
+<p><strong>Sentir Motivação</strong> (CAR): saber se uma pessoa está mentindo, entender os sentimentos de uma pessoa.</p>
+<p><strong>Sedução</strong> (CAR): habilidade para seduzir, manipular emocionalmente, fingir sentimentos amorosos de maneira convincente, charme.</p>
+<h3 id="listas-de-perícias-pré-selecionadas"><a class="header" href="#listas-de-perícias-pré-selecionadas">Listas de perícias pré-selecionadas</a></h3>
+<p>Para jogos com foco maior na ação do que na investigação, recomendo usar Perícias Genéricas, uma lista curta de no máximo 15 perícias que fazem tudo que for necessário na aventura. Você também pode (e deve) inventar perícias de acordo com o cenário ou a aventura.</p>
+<h4 id="sugestão-de-perícias-para-aventuras-de-fantasia"><a class="header" href="#sugestão-de-perícias-para-aventuras-de-fantasia">Sugestão de Perícias para Aventuras de Fantasia:</a></h4>
+<ul>
+<li>Acrobacia (DES)</li>
+<li>Arcanismo (INT)</li>
+<li>Armas Corpo-a-corpo (DES/FOR)</li>
+<li>Armas de Ataque à Distância (DES)</li>
+<li>Atletismo (FOR)</li>
+<li>Cura (INT)</li>
+<li>Diplomacia (CAR)</li>
+<li>Furtividade (DES)</li>
+<li>História (INT)</li>
+<li>Intimidação (CAR)</li>
+<li>Intuição (SAB)</li>
+<li>Ladinagem (DES/INT)</li>
+<li>Procurar (SAB)</li>
+<li>Religião (INT)</li>
+<li>Sobrevivência (INT/SAB)</li>
+<li>Vontade (SAB)</li>
+</ul>
+<h4 id="sugestão-de-perícias-para-aventuras-de-horror"><a class="header" href="#sugestão-de-perícias-para-aventuras-de-horror">Sugestão de Perícias para Aventuras de Horror:</a></h4>
+<ul>
+<li>Armas Brancas (DES/FOR)</li>
+<li>Armas de Fogo (DES)</li>
+<li>Atletismo (FOR/DES)</li>
+<li>Ciências (INT)</li>
+<li>Crime (DES/INT)</li>
+<li>Diplomacia (CAR)</li>
+<li>Dirigir (DES)</li>
+<li>Erudição (INT)</li>
+<li>Furtividade (DES)</li>
+<li>História (INT)</li>
+<li>Investigação (INT)</li>
+<li>Ocultismo (INT)</li>
+<li>Primeiros Socorros (INT)</li>
+<li>Procurar (SAB)</li>
+<li>Usar computadores (INT)</li>
+<li>Vontade (SAB)</li>
+</ul>
+<h2 id="vantagens-e-desvantagens"><a class="header" href="#vantagens-e-desvantagens">Vantagens e Desvantagens</a></h2>
+<p>São determinadas pelo tipo de aventura. Vantagens são compradas com pontos de personagem e desvantagens dão pontos extras para comprar Vantagens. É importante que todos os que forem jogar estejam de acordo com as vantagens e desvantagens escolhidas. Quando uma vantagem for um Poder, ela também é uma perícia, de valor igual ao seu custo. Se a vantagem também for uma perícia, ela vem com o atributo relacionado e que será utilizado nos testes.</p>
+<p>Exemplo de Vantagens:</p>
+<blockquote>
+<p>Poder de Voo (POD)</p>
+<ul>
+<li>1 pt - Flutuar a até 10 metros do chão, velocidade de caminhada.</li>
+<li>2 pts - Flutua a até 50 metros do chão, velocidade de caminhada.</li>
+<li>3 pts - Voo a até 100 metros do chão, velocidade de até 60 km/h</li>
+<li>4 pts - Voo a até 1 km do chão, velocidade de até 200 km/h</li>
+<li>5 pts - Voo a até 10 km do chão, velocidade de até 500 km/h.</li>
+</ul>
+</blockquote>
+<p><em>Assim, Poder de Voo de custo 3 também vira uma perícia, a perícia Voo 3; Em um teste entre dois personagens que voam, será POD+Perícia Voo 3+2d6 de um personagem versus POD+Perícia Voo+2d6 do outro personagem.</em></p>
+<p>Exemplo de Desvantagens:</p>
+<blockquote>
+<p>Fúria Incontrolável</p>
+<ul>
+<li>+3 pts - Todas as vezes que o personagem estiver em uma situação de estresse (um combate, com medo, etc.), fazer um teste de INT em dificuldade determinada pelo Mestre, para não entrar em fúria incontrolável e atacar seus aliados.</li>
+</ul>
+</blockquote>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../content/1_intro.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
+
+                            <a rel="next prefetch" href="../content/3_testes.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../content/1_intro.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+
+                    <a rel="next prefetch" href="../content/3_testes.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr-ef4e11c1.min.js"></script>
+        <script src="../mark-09e88c2c.min.js"></script>
+        <script src="../searcher-c2a407aa.js"></script>
+
+        <script src="../clipboard-1626706a.min.js"></script>
+        <script src="../highlight-abc7f01d.js"></script>
+        <script src="../book-a0b12cfe.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

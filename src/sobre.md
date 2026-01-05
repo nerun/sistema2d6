@@ -1,4 +1,4 @@
-![](src/img/sistema+2d6_thumb.webp)
+![](img/sistema+2d6_thumb.webp)
 
 # Sistema +2d6 em Markdown: agora o Tio Nitro fala *plaintext*
 
@@ -53,7 +53,7 @@ Se você curte RPG nacional, valoriza a simplicidade e quer um sistema
 pronto pra ser *hackeado*, **o +2d6 em Markdown é pra você**. Agora é só
 baixar, clonar ou forkar e partir pro jogo.
 
-[![Google Drive](src/img/googledrive.webp)](https://drive.google.com/uc?export=download&id=1b8_dIQVLaNn5EMiQz6a5hkzPLeNkG7Po "Baixe direto do Google Drive")
+[![Google Drive](img/googledrive.webp)](https://drive.google.com/uc?export=download&id=1b8_dIQVLaNn5EMiQz6a5hkzPLeNkG7Po "Baixe direto do Google Drive")
 
 ---
 
