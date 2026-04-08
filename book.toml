@@ -1,9 +1,13 @@
 [book]
+title = "Sistema +2d6 SRD"
 authors = ["Newton \"Tio Nitro\" Rocha"]
 language = "pt-BR"
 src = "src"
-title = "Sistema +2d6 SRD"
 
 [output.html]
 default-theme = "rust"
 preferred-dark-theme = "rust"
+mathjax-support = true
+
+[build]
+build-dir = "docs"
