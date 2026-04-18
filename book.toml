@@ -8,6 +8,8 @@ src = "src"
 default-theme = "rust"
 preferred-dark-theme = "rust"
 mathjax-support = true
+fold = { enable = true, level = 0 }
+git-repository-url = "https://github.com/nerun/sistema2d6"
 
 [build]
 build-dir = "docs"
